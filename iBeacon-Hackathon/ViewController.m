@@ -1,27 +1,38 @@
 //
 //  ViewController.m
-//  iBeacon-Hackathon
+//  Ripple
 //
-//  Created by HO MING PANG on 15/8/14.
-//  Copyright (c) 2014 HO MING PANG. All rights reserved.
+//  Created by Meng To on 29/11/13.
+//  Copyright (c) 2013 Meng To. All rights reserved.
 //
 
 #import "ViewController.h"
+#import "CSAnimationView.h"
+#import "UIView+SimpleMotionEffects.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
-            
-- (void)viewDidLoad {
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+	
+    // Motion effects
+    [self.listView addMotionEffectWithMovement:CGPointMake(20, 20)];
+    
+    // Change bar style to light
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
+- (IBAction)buttonDidPress:(id)sender {
+    [self.listView startCanvasAnimation];
 }
 
 @end
