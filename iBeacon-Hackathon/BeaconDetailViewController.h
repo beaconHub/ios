@@ -11,5 +11,9 @@
 @interface BeaconDetailViewController : UIViewController{
     CGFloat _imageHeaderHeight;
 }
+@property (nonatomic, copy) NSString* beaconOwnerName;
+
+
+@property (strong, nonatomic) NSDictionary* beaconObj;
 
 @end
