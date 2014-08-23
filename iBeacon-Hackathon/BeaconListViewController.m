@@ -32,13 +32,10 @@
                                       iconColor:[UIColor whiteColor]
                                        iconSize:25.0f
                                       imageSize:CGSizeMake(50.0f, 50.0f)];
-            //  [sender.imageView setImage:icon];
         [sender setImage:icon forState:UIControlStateNormal];
         [sender setTag:2];
 
 
-//        [self.tableView setHidden:NO];
-//        [self.googleMapView setHidden:YES];
         
     }else if(sender.tag == 2){
         UIImage *icon = [IonIcons imageWithIcon:icon_navicon
@@ -49,8 +46,7 @@
         [sender setImage:icon forState:UIControlStateNormal];
         [sender setTag:1];
         self.view = mapView_;
-//        [self.tableView setHidden:YES];
-//        [self.googleMapView setHidden:NO];
+
     }
 
     NSLog(@"out navBarButtonsPressed >> %ld", (long)sender.tag);
@@ -66,9 +62,6 @@
     [self setTitle:@"Discover"];
 
 
-
-    
-
     jsonResponseDictionary = [NSMutableDictionary new];
 
     datasourceArray = [NSMutableArray new];
@@ -79,14 +72,8 @@
                                    iconSize:25.0f
                                   imageSize:CGSizeMake(50.0f, 50.0f)];
 
-        //[IonIcons label:listMapButton.titleLabel setIcon:icon_navicon size:25.0f color:[UIColor darkGrayColor] sizeToFit:NO];
-
-//    if (icon == nil) {
-//        NSLog(@"icon == nil");
-//    }
     [listMapButton setImage:icon forState:UIControlStateNormal];
-        // [listMapButton setShowsTouchWhenHighlighted:NO];
-//    [listMapButton setImageEdgeInsets:UIEdgeInsetsMake(0, 20, 0, 0)];
+
     [listMapButton setTag:2];
 
     [listMapButton setImageEdgeInsets:UIEdgeInsetsMake(2, 10, -2, -10)];
@@ -117,13 +104,10 @@
 
 
 
-    
-//     [locationManager startMonitoringSignificantLocationChanges];
    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:listMapButton];
-//
-//
+
     NSArray *actionButtonItems = @[buttonItem];
-//
+
     self.navigationItem.rightBarButtonItems = actionButtonItems;
 
 
@@ -158,13 +142,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
-//        //    NSLog(@"state >> %@", state);
-////    if (state == ) {
-////        <#statements#>
-////    }
-//
-//
-//    NSLog(@"region >> %@", region.identifier);
+
 
     UILocalNotification *aNotification = [[UILocalNotification alloc] init];
     aNotification.timeZone = [NSTimeZone defaultTimeZone];
