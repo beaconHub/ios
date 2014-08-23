@@ -10,6 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 @interface BeaconListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>{
     CLLocationManager* locationManager;
+
+    NSMutableDictionary* jsonResponseDictionary;
+    NSMutableArray* datasourceArray;
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *googleMapView;

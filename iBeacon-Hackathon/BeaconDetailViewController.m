@@ -32,6 +32,8 @@
     parallaxView.datasource = self;
     [self.view addSubview:parallaxView];
 
+    NSLog(@"beaonObj >> %@", self.beaconObj);
+
         // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -153,6 +155,22 @@
             
             UIView* view02 = [[UIView alloc] initWithFrame:CGRectMake(110, _imageHeaderHeight - 70.f, 210, 35)];
             [view02 setBackgroundColor:[UIColor whiteColor]];
+
+
+            UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, _imageHeaderHeight - 60.f, 150, 35)];
+            [nameLabel setText:[self.beaconObj objectForKey:@"name"]];
+            [nameLabel setTextAlignment:NSTextAlignmentRight];
+            [cell.contentView addSubview:nameLabel];
+
+
+
+
+
+
+
+
+
+
             //[cell.contentView addSubview:view02];
             
             UIView* view03 = [[UIView alloc] initWithFrame:CGRectMake(110, _imageHeaderHeight - 25.f, 210, 20)];
@@ -180,6 +198,13 @@
             UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 568.0f)];
             imageView.tag = CONTENT_IMAGE_VIEW_TAG;
             [cell.contentView addSubview:imageView];
+
+            UILabel* tab1Label = [[UILabel alloc] initWithFrame:CGRectMake(38, 10.0f, 100, 30)];
+            [tab1Label setText:@"Info"];
+            [tab1Label setBackgroundColor:[UIColor clearColor]];
+            [tab1Label setTextColor:[UIColor darkGrayColor]];
+            [cell.contentView addSubview:tab1Label];
+
         }
         UIImageView *imageView = (UIImageView*)[cell viewWithTag:CONTENT_IMAGE_VIEW_TAG];
         imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"content-%i",(tableView.tag%3) + 1]];
