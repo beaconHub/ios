@@ -301,10 +301,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.sourceView = [self.tableView cellForRowAtIndexPath:indexPath];
 
 
-    NSLog(@"didSelectRowAtIndexPath >> %d", indexPath.row);
+
+    if (indexPath.row !=0) {
+
+//    NSLog(@"didSelectRowAtIndexPath >> %d", indexPath.row);
+
+        self.sourceView = [self.tableView cellForRowAtIndexPath:indexPath];
 
     id obj = [datasourceArray objectAtIndex:indexPath.row - 1];
 //    PageViewController *pageViewController = [[PageViewController alloc] init];
@@ -318,6 +322,9 @@
     pageViewController.currentPage = indexPath.row;
     self.navigationController.delegate = self;
     [self.navigationController pushViewController:pageViewController animated:YES];
+
+    }
+
 }
 
 
