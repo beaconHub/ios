@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PageViewToCellAnimation.h"
+#import "TableViewController.h"
+#import <MapKit/MapKit.h>
 
-@interface CSParallaxHeaderViewController : UICollectionViewController
+@interface CSParallaxHeaderViewController : UICollectionViewController<UINavigationControllerDelegate, MKMapViewDelegate>
+@property (nonatomic, assign) id<GestureRecognizerDelegate> gestureRecognizerDelegate;
+@property (nonatomic, assign) NSInteger currentPage;
 
+@property (nonatomic, copy) id beaconObj;
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PageViewController.h"
+#import "CellToPageViewAnimation.h"
 
-@interface BeaconTableViewController : UIViewController
+@interface BeaconTableViewController : UITableViewController <UINavigationControllerDelegate>
+
+@property (nonatomic, strong) UIView *sourceView;
 
 @end

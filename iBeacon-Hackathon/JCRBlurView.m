@@ -7,7 +7,7 @@
 //
 
 #import "JCRBlurView.h"
-
+#import "ChameleonFramework/Chameleon.h"
 @interface JCRBlurView ()
 
 @property (nonatomic, strong) UIToolbar *toolbar;
@@ -62,6 +62,8 @@
 }
 
 - (void) setBlurTintColor:(UIColor *)blurTintColor {
+//    [self.toolbar setTranslucent:YES];
+//    [self.toolbar setAlpha:0.7f];
     [self.toolbar setBarTintColor:blurTintColor];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "MainHostViewController.h"
 
 @interface WebViewController ()
 
@@ -22,6 +23,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    MainHostViewController* parentView = (MainHostViewController*)(self.navigationController.parentViewController);
+        //[parentView.flatRoundedButton setAlpha:1.0];
+
+    [parentView.flatRoundedButton animateToType:buttonBackType];
+    [parentView.headerLabel setText:@"webView"];
+    
+    
 }
 
 /*

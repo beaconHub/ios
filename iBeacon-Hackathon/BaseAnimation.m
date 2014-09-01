@@ -7,6 +7,7 @@
 //
 
 #import "BaseAnimation.h"
+#import <UIKit/UIKit.h>
 
 @implementation BaseAnimation
 

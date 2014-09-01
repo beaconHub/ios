@@ -50,13 +50,16 @@
     // always render correctly
     [transitionContext.containerView addSubview:cellViewController.view];
     
-    CGFloat navigationBarHeight = cellViewController.navigationController.navigationBar.frame.size.height;
-    CGFloat cellViewStartPositionY = [UIApplication sharedApplication].statusBarFrame.size.height + navigationBarHeight;
+    CGFloat navigationBarHeight = 0;
+    CGFloat cellViewStartPositionY = 0;
     CGFloat viewWidth = cellView.frame.size.width;
     CGFloat viewHeight = cellView.frame.size.height;
     
     // get the rect of the source cell in the coords of the cell view
     CGRect sourceRect = [cellView convertRect:self.sourceView.bounds fromView:self.sourceView];
+
+    NSLog(@"sourceRect >> x:%f\ty:%fwidth:%f\theight:%f",sourceRect.origin.x, sourceRect.origin.y, sourceRect.size.width, sourceRect.size.height);
+
     
     // Take a snapshot of the page view and cell view
     // use renderInContext: instead of the new iOS7 snapshot API as that
@@ -115,7 +118,11 @@
     CGRect pageViewShownFrame = CGRectMake(cellImageView.frame.origin.x, cellViewStartPositionY + sourceRect.origin.y, viewWidth, viewHeight);
     CGRect pageViewHiddenFrame = pageViewShownFrame;
     pageViewHiddenFrame.origin.y = cellViewStartPositionY;
+
+
     pageImageView.frame = pageViewHiddenFrame;
+
+//    NSLog(@"pageImageView >> x:%f\ty:%fwidth:%f\theight:%f",pageImageView.frame.origin.x, pageImageView.frame.origin.y, pageImageView.frame.size.width, pageImageView.frame.size.height);
     pageImageView.alpha = ALPHA_SHOWN;
     
     [transitionContext.containerView addSubview:backgroundView];
@@ -132,7 +139,14 @@
                                   //                                  fromViewController.view.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
                                   
                                   aboveCellImageView.frame = aboveCellImageViewShownFrame;
+
+//                                  NSLog(@"aboveCellImageView >> x:%f\ty:%fwidth:%f\theight:%f", aboveCellImageView.frame.origin.x, aboveCellImageView.frame.origin.y, aboveCellImageView.frame.size.width, aboveCellImageView.frame.size.height);
+
                                   cellImageView.frame = cellImageViewShownFrame;
+//
+//
+//                                  NSLog(@"cellImageView >> x:%f\ty:%fwidth:%f\theight:%f", cellImageView.frame.origin.x, cellImageView.frame.origin.y, cellImageView.frame.size.width, cellImageView.frame.size.height);
+
                                   belowCellImageView.frame = belowCellImageViewShownFrame;
                                   pageImageView.frame = pageViewShownFrame;
                                   
@@ -168,30 +182,34 @@
 {
 }
 
+- (void) popViewController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void) handlePinch:(UIPinchGestureRecognizer *)recognizer
 {
     CGFloat scale = recognizer.scale;
     
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
-            self.interactiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
-            startScale = scale;
+//            self.interactiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
+//            startScale = scale;
             [self.navigationController popViewControllerAnimated:YES];
             break;
         case UIGestureRecognizerStateChanged: {
-            CGFloat percent = (1.0 - scale / startScale);
-            shouldCompleteTransition = (percent > 0.25);
-            
-            [self.interactiveTransition updateInteractiveTransition: (percent <= 0.0) ? 0.0 : percent];
+//            CGFloat percent = (1.0 - scale / startScale);
+//            shouldCompleteTransition = (percent > 0.25);
+//            
+//            [self.interactiveTransition updateInteractiveTransition: (percent <= 0.0) ? 0.0 : percent];
             break;
         }
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled:
-            if (!shouldCompleteTransition || recognizer.state == UIGestureRecognizerStateCancelled)
-                [self.interactiveTransition cancelInteractiveTransition];
-            else
-                [self.interactiveTransition finishInteractiveTransition];
-            self.interactiveTransition = nil;
+//            if (!shouldCompleteTransition || recognizer.state == UIGestureRecognizerStateCancelled)
+//                [self.interactiveTransition cancelInteractiveTransition];
+//            else
+//                [self.interactiveTransition finishInteractiveTransition];
+//            self.interactiveTransition = nil;
             break;
         default:
             break;

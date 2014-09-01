@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <VBFDoubleSegment.h>
+#import <VBFPopFlatButton.h>
+#import <TOMSMorphingLabel/TOMSMorphingLabel.h>
+#import "PageViewToCellAnimation.h"
 
-@interface MainHostViewController : UIViewController
+
+@interface MainHostViewController : UIViewController<UINavigationControllerDelegate>
+@property (nonatomic, assign) id<GestureRecognizerDelegate> gestureRecognizerDelegate;
+
+@property (strong, nonatomic) VBFPopFlatButton *flatRoundedButton;
+@property (strong, nonatomic) TOMSMorphingLabel* headerLabel;
+@property (strong, nonatomic) IBOutlet UIView *containerView;
 
 @end

@@ -13,6 +13,32 @@
 		CE115DAC199FB7E600682D97 /* harryng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE115DAB199FB7E600682D97 /* harryng.jpg */; };
 		CE115DAF199FB97000682D97 /* beaconHub_largelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE115DAD199FB97000682D97 /* beaconHub_largelogo.png */; };
 		CE115DB0199FB97000682D97 /* beaconHub_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE115DAE199FB97000682D97 /* beaconHub_logo.png */; };
+		CE20F64519B1105000B8628C /* MainHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64419B1105000B8628C /* MainHostViewController.m */; };
+		CE20F64819B1AB0900B8628C /* BeaconTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64719B1AB0900B8628C /* BeaconTableViewController.m */; };
+		CE20F65119B1B61800B8628C /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64A19B1B61800B8628C /* UIImage+Utils.m */; };
+		CE20F65219B1B61800B8628C /* BaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64C19B1B61800B8628C /* BaseAnimation.m */; };
+		CE20F65319B1B61800B8628C /* CellToPageViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64E19B1B61800B8628C /* CellToPageViewAnimation.m */; };
+		CE20F65419B1B61800B8628C /* PageViewToCellAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F65019B1B61800B8628C /* PageViewToCellAnimation.m */; };
+		CE20F65919B1B63200B8628C /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F65619B1B63200B8628C /* TableViewController.m */; };
+		CE20F65A19B1B63200B8628C /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F65819B1B63200B8628C /* PageViewController.m */; };
+		CE20F65C19B1B91B00B8628C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE20F65B19B1B91B00B8628C /* CoreGraphics.framework */; };
+		CE20F65F19B1F4F300B8628C /* JCRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F65E19B1F4F300B8628C /* JCRBlurView.m */; };
+		CE20F66219B1FC3400B8628C /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F66119B1FC3400B8628C /* UIColor+RandomColor.m */; };
+		CE20F66819B2211800B8628C /* ProximaNova-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66319B2211800B8628C /* ProximaNova-Bold.ttf */; };
+		CE20F66919B2211800B8628C /* ProximaNova-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66419B2211800B8628C /* ProximaNova-Light.ttf */; };
+		CE20F66A19B2211800B8628C /* ProximaNova-Reg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66519B2211800B8628C /* ProximaNova-Reg.ttf */; };
+		CE20F66B19B2211800B8628C /* ProximaNova-Sbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66619B2211800B8628C /* ProximaNova-Sbold.ttf */; };
+		CE20F66C19B2211800B8628C /* ProximaNova-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66719B2211800B8628C /* ProximaNova-Thin.ttf */; };
+		CE20F67819B2F66B00B8628C /* CSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F66F19B2F66B00B8628C /* CSCell.m */; };
+		CE20F67919B2F66B00B8628C /* CSAlwaysOnTopHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F67119B2F66B00B8628C /* CSAlwaysOnTopHeader.m */; };
+		CE20F67A19B2F66B00B8628C /* CSSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67219B2F66B00B8628C /* CSSectionHeader.xib */; };
+		CE20F67B19B2F66B00B8628C /* CSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67319B2F66B00B8628C /* CSCell.xib */; };
+		CE20F67C19B2F66B00B8628C /* CSParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67419B2F66B00B8628C /* CSParallaxHeader.xib */; };
+		CE20F67D19B2F66B00B8628C /* CSSearchBarHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67519B2F66B00B8628C /* CSSearchBarHeader.xib */; };
+		CE20F67E19B2F66B00B8628C /* CSGrowHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67619B2F66B00B8628C /* CSGrowHeader.xib */; };
+		CE20F67F19B2F66B00B8628C /* CSAlwaysOnTopHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67719B2F66B00B8628C /* CSAlwaysOnTopHeader.xib */; };
+		CE20F68219B2F6A700B8628C /* CSParallaxHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F68119B2F6A700B8628C /* CSParallaxHeaderViewController.m */; };
+		CE20F68519B40D0500B8628C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F68419B40D0500B8628C /* WebViewController.m */; };
 		CE321A3C199E123A00D7787E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE321A3B199E123A00D7787E /* main.m */; };
 		CE321A3F199E123A00D7787E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE321A3E199E123A00D7787E /* AppDelegate.m */; };
 		CE321A60199E14BE00D7787E /* MuseoSans-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE321A5D199E14BE00D7787E /* MuseoSans-100.otf */; };
@@ -22,6 +48,7 @@
 		CE321A68199E150300D7787E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE321A66199E150300D7787E /* ProfileViewController.m */; };
 		CE321A6B199E151100D7787E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE321A6A199E151100D7787E /* ViewController.m */; };
 		CE449319199F452A00296D6A /* BeaconDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE449318199F452A00296D6A /* BeaconDetailViewController.m */; };
+		CE526E6819AEED290065E511 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE526E6719AEED290065E511 /* MapKit.framework */; };
 		CE895B1C199F3E8100937999 /* MHTsekotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE895B17199F3E8100937999 /* MHTsekotCell.m */; };
 		CE895B1D199F3E8100937999 /* MHYahooParallaxView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE895B19199F3E8100937999 /* MHYahooParallaxView.m */; };
 		CE895B1E199F3E8100937999 /* MHYahooParallaxCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CE895B1A199F3E8100937999 /* MHYahooParallaxCollectionViewLayout.m */; };
@@ -59,6 +86,46 @@
 		CE115DAB199FB7E600682D97 /* harryng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = harryng.jpg; sourceTree = "<group>"; };
 		CE115DAD199FB97000682D97 /* beaconHub_largelogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beaconHub_largelogo.png; sourceTree = "<group>"; };
 		CE115DAE199FB97000682D97 /* beaconHub_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beaconHub_logo.png; sourceTree = "<group>"; };
+		CE20F64319B1105000B8628C /* MainHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainHostViewController.h; sourceTree = "<group>"; };
+		CE20F64419B1105000B8628C /* MainHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainHostViewController.m; sourceTree = "<group>"; };
+		CE20F64619B1AB0900B8628C /* BeaconTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconTableViewController.h; sourceTree = "<group>"; };
+		CE20F64719B1AB0900B8628C /* BeaconTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconTableViewController.m; sourceTree = "<group>"; };
+		CE20F64919B1B61800B8628C /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		CE20F64A19B1B61800B8628C /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
+		CE20F64B19B1B61800B8628C /* BaseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAnimation.h; sourceTree = "<group>"; };
+		CE20F64C19B1B61800B8628C /* BaseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAnimation.m; sourceTree = "<group>"; };
+		CE20F64D19B1B61800B8628C /* CellToPageViewAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellToPageViewAnimation.h; sourceTree = "<group>"; };
+		CE20F64E19B1B61800B8628C /* CellToPageViewAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellToPageViewAnimation.m; sourceTree = "<group>"; };
+		CE20F64F19B1B61800B8628C /* PageViewToCellAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewToCellAnimation.h; sourceTree = "<group>"; };
+		CE20F65019B1B61800B8628C /* PageViewToCellAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewToCellAnimation.m; sourceTree = "<group>"; };
+		CE20F65519B1B63200B8628C /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		CE20F65619B1B63200B8628C /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		CE20F65719B1B63200B8628C /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		CE20F65819B1B63200B8628C /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		CE20F65B19B1B91B00B8628C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CE20F65D19B1F4F300B8628C /* JCRBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRBlurView.h; sourceTree = "<group>"; };
+		CE20F65E19B1F4F300B8628C /* JCRBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRBlurView.m; sourceTree = "<group>"; };
+		CE20F66019B1FC3400B8628C /* UIColor+RandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColor.h"; sourceTree = "<group>"; };
+		CE20F66119B1FC3400B8628C /* UIColor+RandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColor.m"; sourceTree = "<group>"; };
+		CE20F66319B2211800B8628C /* ProximaNova-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.ttf"; sourceTree = "<group>"; };
+		CE20F66419B2211800B8628C /* ProximaNova-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.ttf"; sourceTree = "<group>"; };
+		CE20F66519B2211800B8628C /* ProximaNova-Reg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Reg.ttf"; sourceTree = "<group>"; };
+		CE20F66619B2211800B8628C /* ProximaNova-Sbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Sbold.ttf"; sourceTree = "<group>"; };
+		CE20F66719B2211800B8628C /* ProximaNova-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Thin.ttf"; sourceTree = "<group>"; };
+		CE20F66E19B2F66B00B8628C /* CSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCell.h; sourceTree = "<group>"; };
+		CE20F66F19B2F66B00B8628C /* CSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCell.m; sourceTree = "<group>"; };
+		CE20F67019B2F66B00B8628C /* CSAlwaysOnTopHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSAlwaysOnTopHeader.h; sourceTree = "<group>"; };
+		CE20F67119B2F66B00B8628C /* CSAlwaysOnTopHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSAlwaysOnTopHeader.m; sourceTree = "<group>"; };
+		CE20F67219B2F66B00B8628C /* CSSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSSectionHeader.xib; sourceTree = "<group>"; };
+		CE20F67319B2F66B00B8628C /* CSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSCell.xib; sourceTree = "<group>"; };
+		CE20F67419B2F66B00B8628C /* CSParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSParallaxHeader.xib; sourceTree = "<group>"; };
+		CE20F67519B2F66B00B8628C /* CSSearchBarHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSSearchBarHeader.xib; sourceTree = "<group>"; };
+		CE20F67619B2F66B00B8628C /* CSGrowHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSGrowHeader.xib; sourceTree = "<group>"; };
+		CE20F67719B2F66B00B8628C /* CSAlwaysOnTopHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSAlwaysOnTopHeader.xib; sourceTree = "<group>"; };
+		CE20F68019B2F6A700B8628C /* CSParallaxHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSParallaxHeaderViewController.h; sourceTree = "<group>"; };
+		CE20F68119B2F6A700B8628C /* CSParallaxHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSParallaxHeaderViewController.m; sourceTree = "<group>"; };
+		CE20F68319B40D0500B8628C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		CE20F68419B40D0500B8628C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CE321A36199E123A00D7787E /* iBeacon-Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iBeacon-Hackathon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE321A3A199E123A00D7787E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE321A3B199E123A00D7787E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -77,6 +144,7 @@
 		CE321A6A199E151100D7787E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CE449317199F452A00296D6A /* BeaconDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconDetailViewController.h; sourceTree = "<group>"; };
 		CE449318199F452A00296D6A /* BeaconDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconDetailViewController.m; sourceTree = "<group>"; };
+		CE526E6719AEED290065E511 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CE895B16199F3E8100937999 /* MHTsekotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTsekotCell.h; sourceTree = "<group>"; };
 		CE895B17199F3E8100937999 /* MHTsekotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTsekotCell.m; sourceTree = "<group>"; };
 		CE895B18199F3E8100937999 /* MHYahooParallaxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHYahooParallaxView.h; sourceTree = "<group>"; };
@@ -117,6 +185,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE20F65C19B1B91B00B8628C /* CoreGraphics.framework in Frameworks */,
+				CE526E6819AEED290065E511 /* MapKit.framework in Frameworks */,
 				CE9BC95C19A086D800629D8E /* CoreBluetooth.framework in Frameworks */,
 				CE8E6294199F472900424866 /* CoreLocation.framework in Frameworks */,
 				CE8E62A6199F476B00424866 /* SystemConfiguration.framework in Frameworks */,
@@ -138,6 +208,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE20F66D19B2F65900B8628C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE20F66E19B2F66B00B8628C /* CSCell.h */,
+				CE20F66F19B2F66B00B8628C /* CSCell.m */,
+				CE20F67019B2F66B00B8628C /* CSAlwaysOnTopHeader.h */,
+				CE20F67119B2F66B00B8628C /* CSAlwaysOnTopHeader.m */,
+				CE20F67219B2F66B00B8628C /* CSSectionHeader.xib */,
+				CE20F67319B2F66B00B8628C /* CSCell.xib */,
+				CE20F67419B2F66B00B8628C /* CSParallaxHeader.xib */,
+				CE20F67519B2F66B00B8628C /* CSSearchBarHeader.xib */,
+				CE20F67619B2F66B00B8628C /* CSGrowHeader.xib */,
+				CE20F67719B2F66B00B8628C /* CSAlwaysOnTopHeader.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		CE321A2D199E123A00D7787E = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +247,7 @@
 		CE321A38199E123A00D7787E /* iBeacon-Hackathon */ = {
 			isa = PBXGroup;
 			children = (
+				CE20F66D19B2F65900B8628C /* Cell */,
 				CE321A5C199E14A900D7787E /* Fonts */,
 				CE115DA9199FA2A000682D97 /* panghoming.jpg */,
 				CE115DAB199FB7E600682D97 /* harryng.jpg */,
@@ -167,6 +255,12 @@
 				CE115DAE199FB97000682D97 /* beaconHub_logo.png */,
 				CE321A3D199E123A00D7787E /* AppDelegate.h */,
 				CE321A3E199E123A00D7787E /* AppDelegate.m */,
+				CE20F68019B2F6A700B8628C /* CSParallaxHeaderViewController.h */,
+				CE20F68119B2F6A700B8628C /* CSParallaxHeaderViewController.m */,
+				CE20F68319B40D0500B8628C /* WebViewController.h */,
+				CE20F68419B40D0500B8628C /* WebViewController.m */,
+				CE20F64619B1AB0900B8628C /* BeaconTableViewController.h */,
+				CE20F64719B1AB0900B8628C /* BeaconTableViewController.m */,
 				CE895B34199F40B700937999 /* BeaconListViewController.h */,
 				CE895B32199F40A000937999 /* BeaconListViewController.m */,
 				CE895B16199F3E8100937999 /* MHTsekotCell.h */,
@@ -184,8 +278,31 @@
 				CE321A65199E150300D7787E /* ProfileViewController.h */,
 				CE321A66199E150300D7787E /* ProfileViewController.m */,
 				CE10A9FB199E16FF009D100B /* Main.storyboard */,
+				CE20F66319B2211800B8628C /* ProximaNova-Bold.ttf */,
+				CE20F66419B2211800B8628C /* ProximaNova-Light.ttf */,
+				CE20F66519B2211800B8628C /* ProximaNova-Reg.ttf */,
+				CE20F66619B2211800B8628C /* ProximaNova-Sbold.ttf */,
+				CE20F66719B2211800B8628C /* ProximaNova-Thin.ttf */,
 				CE8F185E199E167C00489139 /* Image.xcassets */,
+				CE20F64919B1B61800B8628C /* UIImage+Utils.h */,
+				CE20F64A19B1B61800B8628C /* UIImage+Utils.m */,
+				CE20F64B19B1B61800B8628C /* BaseAnimation.h */,
+				CE20F64C19B1B61800B8628C /* BaseAnimation.m */,
+				CE20F64D19B1B61800B8628C /* CellToPageViewAnimation.h */,
+				CE20F64E19B1B61800B8628C /* CellToPageViewAnimation.m */,
+				CE20F64F19B1B61800B8628C /* PageViewToCellAnimation.h */,
+				CE20F65019B1B61800B8628C /* PageViewToCellAnimation.m */,
+				CE20F65519B1B63200B8628C /* TableViewController.h */,
+				CE20F65619B1B63200B8628C /* TableViewController.m */,
+				CE20F65719B1B63200B8628C /* PageViewController.h */,
+				CE20F65819B1B63200B8628C /* PageViewController.m */,
+				CE20F65D19B1F4F300B8628C /* JCRBlurView.h */,
+				CE20F65E19B1F4F300B8628C /* JCRBlurView.m */,
+				CE20F66019B1FC3400B8628C /* UIColor+RandomColor.h */,
+				CE20F66119B1FC3400B8628C /* UIColor+RandomColor.m */,
 				CE321A39199E123A00D7787E /* Supporting Files */,
+				CE20F64319B1105000B8628C /* MainHostViewController.h */,
+				CE20F64419B1105000B8628C /* MainHostViewController.m */,
 			);
 			path = "iBeacon-Hackathon";
 			sourceTree = "<group>";
@@ -237,6 +354,8 @@
 		DB65E01BBB784BCBAC3ABBA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE20F65B19B1B91B00B8628C /* CoreGraphics.framework */,
+				CE526E6719AEED290065E511 /* MapKit.framework */,
 				CE9BC95B19A086D800629D8E /* CoreBluetooth.framework */,
 				CE8E62A5199F476B00424866 /* SystemConfiguration.framework */,
 				CE8E62A3199F476400424866 /* QuartzCore.framework */,
@@ -316,23 +435,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE20F67A19B2F66B00B8628C /* CSSectionHeader.xib in Resources */,
+				CE20F67C19B2F66B00B8628C /* CSParallaxHeader.xib in Resources */,
 				CE321A61199E14BE00D7787E /* MuseoSans-300.otf in Resources */,
 				CE895B28199F3ECB00937999 /* content-1@2x.png in Resources */,
 				CE895B29199F3ECB00937999 /* content-2.png in Resources */,
+				CE20F67F19B2F66B00B8628C /* CSAlwaysOnTopHeader.xib in Resources */,
 				CE895B2B199F3ECB00937999 /* content-3.png in Resources */,
 				CE10A9FC199E16FF009D100B /* Main.storyboard in Resources */,
 				CE115DAF199FB97000682D97 /* beaconHub_largelogo.png in Resources */,
 				CE115DB0199FB97000682D97 /* beaconHub_logo.png in Resources */,
+				CE20F66819B2211800B8628C /* ProximaNova-Bold.ttf in Resources */,
+				CE20F67D19B2F66B00B8628C /* CSSearchBarHeader.xib in Resources */,
+				CE20F67E19B2F66B00B8628C /* CSGrowHeader.xib in Resources */,
 				CE115DAC199FB7E600682D97 /* harryng.jpg in Resources */,
 				CE8F185F199E167C00489139 /* Image.xcassets in Resources */,
+				CE20F66919B2211800B8628C /* ProximaNova-Light.ttf in Resources */,
 				CE895B27199F3ECB00937999 /* content-1.png in Resources */,
+				CE20F66C19B2211800B8628C /* ProximaNova-Thin.ttf in Resources */,
+				CE20F67B19B2F66B00B8628C /* CSCell.xib in Resources */,
 				CE115DAA199FA2A000682D97 /* panghoming.jpg in Resources */,
 				CE321A62199E14BE00D7787E /* MuseoSans-500.otf in Resources */,
 				CE321A60199E14BE00D7787E /* MuseoSans-100.otf in Resources */,
 				CE895B2E199F3ECB00937999 /* header_bg@2x.png in Resources */,
+				CE20F66B19B2211800B8628C /* ProximaNova-Sbold.ttf in Resources */,
 				CE895B2D199F3ECB00937999 /* header_bg.png in Resources */,
 				CE895B2C199F3ECB00937999 /* content-3@2x.png in Resources */,
 				CE895B2A199F3ECB00937999 /* content-2@2x.png in Resources */,
+				CE20F66A19B2211800B8628C /* ProximaNova-Reg.ttf in Resources */,
 				CE8E628E199F46CF00424866 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,14 +509,28 @@
 			files = (
 				CE895B33199F40A000937999 /* BeaconListViewController.m in Sources */,
 				CE449319199F452A00296D6A /* BeaconDetailViewController.m in Sources */,
+				CE20F65919B1B63200B8628C /* TableViewController.m in Sources */,
+				CE20F68219B2F6A700B8628C /* CSParallaxHeaderViewController.m in Sources */,
 				CE321A3F199E123A00D7787E /* AppDelegate.m in Sources */,
+				CE20F65119B1B61800B8628C /* UIImage+Utils.m in Sources */,
+				CE20F67819B2F66B00B8628C /* CSCell.m in Sources */,
 				CE321A67199E150300D7787E /* ChatViewController.m in Sources */,
 				CE895B1C199F3E8100937999 /* MHTsekotCell.m in Sources */,
 				CE321A3C199E123A00D7787E /* main.m in Sources */,
 				CE321A68199E150300D7787E /* ProfileViewController.m in Sources */,
+				CE20F64519B1105000B8628C /* MainHostViewController.m in Sources */,
+				CE20F65319B1B61800B8628C /* CellToPageViewAnimation.m in Sources */,
+				CE20F65A19B1B63200B8628C /* PageViewController.m in Sources */,
 				CE321A6B199E151100D7787E /* ViewController.m in Sources */,
+				CE20F67919B2F66B00B8628C /* CSAlwaysOnTopHeader.m in Sources */,
+				CE20F65F19B1F4F300B8628C /* JCRBlurView.m in Sources */,
+				CE20F64819B1AB0900B8628C /* BeaconTableViewController.m in Sources */,
 				CE895B1D199F3E8100937999 /* MHYahooParallaxView.m in Sources */,
+				CE20F68519B40D0500B8628C /* WebViewController.m in Sources */,
+				CE20F66219B1FC3400B8628C /* UIColor+RandomColor.m in Sources */,
 				CE895B1E199F3E8100937999 /* MHYahooParallaxCollectionViewLayout.m in Sources */,
+				CE20F65219B1B61800B8628C /* BaseAnimation.m in Sources */,
+				CE20F65419B1B61800B8628C /* PageViewToCellAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +625,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "iBeacon-Hackathon/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -499,7 +643,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "iBeacon-Hackathon/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

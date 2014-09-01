@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "PageViewController.h"
 #import "CellToPageViewAnimation.h"
+#import <CoreLocation/CoreLocation.h>
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface TableViewController : UITableViewController<UINavigationControllerDelegate>
+@interface TableViewController : UITableViewController<UINavigationControllerDelegate,CLLocationManagerDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>{
+    CLLocationManager* locationManager;
+
+    NSMutableDictionary* jsonResponseDictionary;
+    NSMutableArray* datasourceArray;
+
+}
 
 @property (nonatomic, strong) UIView *sourceView;
 

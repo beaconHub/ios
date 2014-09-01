@@ -38,14 +38,16 @@
     // always render correctly
     [transitionContext.containerView addSubview:pageViewController.view];
     
-    CGFloat navigationBarHeight = cellViewController.navigationController.navigationBar.frame.size.height;
-    CGFloat cellViewStartPositionY = [UIApplication sharedApplication].statusBarFrame.size.height + navigationBarHeight;
+    CGFloat navigationBarHeight = 0;
+    CGFloat cellViewStartPositionY = 0;
     CGFloat viewWidth = cellView.frame.size.width;
     CGFloat viewHeight = cellView.frame.size.height;
     
     // get the rect of the source cell in the coords of the cell view
     CGRect sourceRect = [cellView convertRect:self.sourceView.bounds fromView:self.sourceView];
-    
+
+
+
     // Take a snapshot of the page view and cell view
     // use renderInContext: instead of the new iOS7 snapshot API as that
     // only works for views that are currently visible in the view hierarchy

@@ -8,6 +8,8 @@
 
 #import "PageViewController.h"
 
+#import "ChameleonFramework/Chameleon.h"
+
 @interface PageViewController ()
 
 @end
@@ -30,10 +32,15 @@
     viewControllers = controllers;
     
     self.swipeView = [[SwipeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    self.swipeView.backgroundColor = [UIColor clearColor];
+    self.swipeView.backgroundColor = [UIColor redColor];
     self.swipeView.delegate = self;
     self.swipeView.dataSource = self;
     self.swipeView.currentPage = self.currentPage;
+
+//    NSLog(@"PageViewController >> %d", self.currentPage);
+//
+//    NSLog(@"self.swipteView.currentPage >> %d", self.swipeView.currentPage);
+    [self.swipeView setBounces:false];
     [self.view addSubview:self.swipeView];
     self.view.backgroundColor = [UIColor clearColor];
     
@@ -72,7 +79,7 @@
 - (NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView
 {
     //return the total number of items in the carousel
-    return [self.data count];
+    return 1;
 }
 
 - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
@@ -114,7 +121,10 @@
     // Check if we're transitioning from this view controller to PageViewController
     if (fromVC == self && [toVC isKindOfClass:[TableViewController class]]) {
         // As user may swipe the page view, find out the indexPath that animation should return to
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.swipeView.currentPage inSection:0];;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.currentPage inSection:0];;
+
+
+
         [((TableViewController *)toVC).tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
         pageViewToCellAnimation.sourceView = [((TableViewController *)toVC).tableView cellForRowAtIndexPath:indexPath];
         return pageViewToCellAnimation;

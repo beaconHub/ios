@@ -17,7 +17,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [GMSServices provideAPIKey:@"AIzaSyDbnNZDWy0Iw_pnLgsGRN7Py0JkVHMfZKk"];
+//    [GMSServices provideAPIKey:@"AIzaSyDbnNZDWy0Iw_pnLgsGRN7Py0JkVHMfZKk"];
+
+
+//    for (NSString* family in [UIFont familyNames]) {
+//        NSLog(@"%@", family);
+//        for (NSString* name in [UIFont fontNamesForFamilyName:family]) {
+//            NSLog(@"%@", name);
+//        }
+//    }
+
+//    2014-08-30 23:18:01.582 iBeacon-Hackathon[878:476584] Proxima Nova
+//    2014-08-30 23:18:01.582 iBeacon-Hackathon[878:476584] ProximaNova-Regular
+//    2014-08-30 23:18:01.582 iBeacon-Hackathon[878:476584] ProximaNovaT-Thin
+//    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Bold
+//    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Light
+
     return YES;
 }
 
