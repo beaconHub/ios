@@ -7,8 +7,6 @@
 //
 
 #import "MainHostViewController.h"
-
-
 #import "ChameleonFramework/Chameleon.h"
 #import "JCRBlurView.h"
 #import "CSParallaxHeaderViewController.h"
@@ -30,6 +28,10 @@
 //}
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+        //加返scan for beacons
+
+
 //[self setNeedsStatusBarAppearanceUpdate];
     self.flatRoundedButton = [[VBFPopFlatButton alloc]initWithFrame:CGRectMake(15, 30, 18, 18)
                                                          buttonType:buttonAddType

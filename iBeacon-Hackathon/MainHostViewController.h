@@ -13,6 +13,7 @@
 #import "PageViewToCellAnimation.h"
 
 
+
 @interface MainHostViewController : UIViewController<UINavigationControllerDelegate>
 @property (nonatomic, assign) id<GestureRecognizerDelegate> gestureRecognizerDelegate;
 

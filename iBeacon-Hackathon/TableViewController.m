@@ -71,6 +71,12 @@
         // Set a movement threshold for new events.
     locationManager.distanceFilter = 500; // meters
 
+    if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [locationManager requestAlwaysAuthorization];
+    }
+
+
+        [locationManager startUpdatingLocation];
     AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
     [afhttpManager GET:@"http://beaconhub.herokuapp.com/search/near/22.3657233/114.0464272/15.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
@@ -135,15 +141,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [UITableViewCell new];
 
-    if (indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Row0Cell"];
-    }else
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        //check
+    UITableViewCell *cell = nil;
+        //check
+
+
+
+
 
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+
+        if (indexPath.row == 0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Row0Cell"];
+        }else
+            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
 
     cell.backgroundColor = FlatSkyBlue;
@@ -204,12 +217,17 @@
 
     UIImageView* appWebIconView = (UIImageView*) [cell viewWithTag:2];
 
+
+
+        //link
         //icon_ios7_world_outline
 
+
+        //改 －
     UIImage *icon = [IonIcons imageWithIcon:icon_iphone iconColor:[UIColor whiteColor] iconSize:40.0f imageSize:CGSizeMake(50.0f, 50.0f)];
     [appWebIconView setBackgroundColor:[UIColor clearColor]];
     [appWebIconView setImage:icon];
-
+        //改
 
     JCRBlurView* cellLine = (JCRBlurView*) [cell viewWithTag:4];
     [cellLine setAlpha:0.2f];
@@ -391,7 +409,7 @@
         NSLog(@"kCLAuthorizationStatusAuthorizedAlways");
     }else if(status == kCLAuthorizationStatusNotDetermined){
         NSLog(@"kCLAuthorizationStatusNotDetermined");
-        [locationManager startUpdatingLocation];
+            //      [locationManager startUpdatingLocation];
     }
         // NSLog(@"authorizationstatus >> %@", status);
 
