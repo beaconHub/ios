@@ -77,6 +77,11 @@
 
 
         [locationManager startUpdatingLocation];
+    for (CLBeaconRegion *region in locationManager.monitoredRegions) {
+        [locationManager stopMonitoringForRegion:region];
+        [locationManager stopRangingBeaconsInRegion:region];
+    }
+
     AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
     [afhttpManager GET:@"http://beaconhub.herokuapp.com/search/near/22.3657233/114.0464272/15.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
@@ -97,6 +102,14 @@
                     //                NSDictionary *res2=[res objectForKey:@"post"];
                     //                [self.storesArray addObject:res2];
 
+                    CLBeaconRegion* hackathonRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[obj objectForKey:@"uuid"]] major:[[obj objectForKey:@"major"] integerValue] minor:[[obj objectForKey:@"minor"] integerValue] identifier:[NSString stringWithFormat:@"beacon-%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]]];
+                    
+                    [hackathonRegion setNotifyOnEntry:YES];
+                    [hackathonRegion setNotifyOnExit:YES];
+                    [hackathonRegion setNotifyEntryStateOnDisplay:YES];
+                    
+                    [locationManager startMonitoringForRegion:hackathonRegion];
+                    [locationManager startRangingBeaconsInRegion:hackathonRegion];
                 }
 
                 //NSLog(@"result.count >> %d", results.count);
@@ -177,7 +190,7 @@
         [numberLabel setTextColor:[UIColor whiteColor]];
         [numberLabel setTextAlignment:NSTextAlignmentCenter];
         [numberLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:90.f]];
-        [numberLabel setText:@"39"];
+        [numberLabel setText:@"38"];
 
         UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 190, 320, 15)];
         [textLabel setBackgroundColor:[UIColor clearColor]];
