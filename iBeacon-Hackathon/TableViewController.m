@@ -190,7 +190,7 @@
         [numberLabel setTextColor:[UIColor whiteColor]];
         [numberLabel setTextAlignment:NSTextAlignmentCenter];
         [numberLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:90.f]];
-        [numberLabel setText:@"38"];
+        [numberLabel setText:[NSString stringWithFormat:@"%lu", datasourceArray.count]];
 
         UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 190, 320, 15)];
         [textLabel setBackgroundColor:[UIColor clearColor]];
