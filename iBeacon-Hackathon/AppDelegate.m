@@ -33,6 +33,16 @@
 //    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Bold
 //    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Light
 
+    UIApplication *app = [UIApplication sharedApplication];
+    if ([app respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        [app registerUserNotificationSettings:settings];
+        [app registerForRemoteNotifications];
+    } else {
+        [app registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
+    }
+    
     return YES;
 }
 
