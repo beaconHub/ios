@@ -83,17 +83,17 @@
 //        NSLog(@"yes");
 //        [locationManager startUpdatingLocation];
 //    }
-//
-//
-//
-////    CLBeaconRegion* hackathonRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"] major:100 minor:100 identifier:@"sdf"];
-////
-////    [hackathonRegion setNotifyOnEntry:YES];
-////    [hackathonRegion setNotifyOnExit:YES];
-////    [hackathonRegion setNotifyEntryStateOnDisplay:YES];
-////
-////    [locationManager startMonitoringForRegion:hackathonRegion];
-////    [locationManager startRangingBeaconsInRegion:hackathonRegion];
+
+
+
+    CLBeaconRegion* hackathonRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"] major:100 minor:100 identifier:@"sdf"];
+
+    [hackathonRegion setNotifyOnEntry:YES];
+    [hackathonRegion setNotifyOnExit:YES];
+    [hackathonRegion setNotifyEntryStateOnDisplay:YES];
+
+    [locationManager startMonitoringForRegion:hackathonRegion];
+    [locationManager startRangingBeaconsInRegion:hackathonRegion];
 
 
 
@@ -206,6 +206,7 @@
     return shouldFetchLocation;
 }
 
+#pragma mark - locationManager delegate methods
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 
@@ -295,6 +296,8 @@
 
     ////
 
+#pragma mark - UITableView
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;    //count of section
@@ -383,6 +386,8 @@
 
 }
 
+#pragma mark - DZNEmptyDataSetDelegate methods
+
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
 
     NSString *text = @"No Beacon Services Found";
@@ -425,7 +430,6 @@
      UIImage *icon = [IonIcons imageWithIcon:icon_bluetooth iconColor:[UIColor darkGrayColor] iconSize:44.0f imageSize:CGSizeMake(60.0f, 60.0f)];
     return icon;
 }
-
 
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView {
 
