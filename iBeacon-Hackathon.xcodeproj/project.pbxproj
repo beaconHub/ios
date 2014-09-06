@@ -126,7 +126,7 @@
 		CE20F68119B2F6A700B8628C /* CSParallaxHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSParallaxHeaderViewController.m; sourceTree = "<group>"; };
 		CE20F68319B40D0500B8628C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CE20F68419B40D0500B8628C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		CE321A36199E123A00D7787E /* iBeacon-Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iBeacon-Hackathon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE321A36199E123A00D7787E /* beaconHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beaconHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE321A3A199E123A00D7787E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE321A3B199E123A00D7787E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE321A3D199E123A00D7787E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 		CE321A37199E123A00D7787E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE321A36199E123A00D7787E /* iBeacon-Hackathon.app */,
+				CE321A36199E123A00D7787E /* beaconHub.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -379,9 +379,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE321A35199E123A00D7787E /* iBeacon-Hackathon */ = {
+		CE321A35199E123A00D7787E /* beaconHub */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE321A56199E123B00D7787E /* Build configuration list for PBXNativeTarget "iBeacon-Hackathon" */;
+			buildConfigurationList = CE321A56199E123B00D7787E /* Build configuration list for PBXNativeTarget "beaconHub" */;
 			buildPhases = (
 				65B30861AFFC4011AF7F5561 /* Check Pods Manifest.lock */,
 				CE321A32199E123A00D7787E /* Sources */,
@@ -393,9 +393,9 @@
 			);
 			dependencies = (
 			);
-			name = "iBeacon-Hackathon";
+			name = beaconHub;
 			productName = "iBeacon-Hackathon";
-			productReference = CE321A36199E123A00D7787E /* iBeacon-Hackathon.app */;
+			productReference = CE321A36199E123A00D7787E /* beaconHub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -431,7 +431,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE321A35199E123A00D7787E /* iBeacon-Hackathon */,
+				CE321A35199E123A00D7787E /* beaconHub */,
 			);
 		};
 /* End PBXProject section */
@@ -632,7 +632,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "iBeacon-Hackathon/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -652,7 +652,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "iBeacon-Hackathon/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -671,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE321A56199E123B00D7787E /* Build configuration list for PBXNativeTarget "iBeacon-Hackathon" */ = {
+		CE321A56199E123B00D7787E /* Build configuration list for PBXNativeTarget "beaconHub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE321A57199E123B00D7787E /* Debug */,
