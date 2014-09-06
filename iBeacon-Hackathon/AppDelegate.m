@@ -62,10 +62,33 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self clearNotifications:application];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - 
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive) {
+        NSLog(@"application active didreceivelocationnotification");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:notification.alertBody delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else if (state == UIApplicationStateInactive) {
+        NSLog(@"application inactive didreceivelocationnotification");
+    }
+}
+
+- (void)clearNotifications:(UIApplication *)application
+{
+    [application setApplicationIconBadgeNumber: 0];
+    [application cancelAllLocalNotifications];
+}
+
+
 
 @end

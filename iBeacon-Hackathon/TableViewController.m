@@ -439,22 +439,35 @@
 
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
-
-
-    UILocalNotification *aNotification = [[UILocalNotification alloc] init];
-    aNotification.timeZone = [NSTimeZone defaultTimeZone];
-    aNotification.alertBody = @"Notification triggered";
-    aNotification.alertAction = @"Details";
-    [[UIApplication sharedApplication] scheduleLocalNotification:aNotification];
+    NSString *stateString = nil;
+    switch (state) {
+        case CLRegionStateInside:
+            stateString = @"inside";
+            break;
+        case CLRegionStateOutside:
+            stateString = @"outside";
+            break;
+        case CLRegionStateUnknown:
+            stateString = @"unknown";
+            break;
+    }
+    
+    CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+    NSString *alertBody = [NSString stringWithFormat:@"Notification determined (%@): %@-%@", stateString, [beaconRegion major], [beaconRegion minor]];
+    NSLog(@"%@", alertBody);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
     NSLog(@"didEnterRegion");
 
+    CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+    NSString *alertBody = [NSString stringWithFormat:@"Notification triggered: %@-%@", [beaconRegion major], [beaconRegion minor]];
+    
     UILocalNotification *aNotification = [[UILocalNotification alloc] init];
     aNotification.timeZone = [NSTimeZone defaultTimeZone];
-    aNotification.alertBody = @"Notification triggered";
+    aNotification.alertBody = alertBody;
     aNotification.alertAction = @"Details";
+    aNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
     [[UIApplication sharedApplication] scheduleLocalNotification:aNotification];
 
 
