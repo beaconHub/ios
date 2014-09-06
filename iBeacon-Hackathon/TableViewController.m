@@ -22,6 +22,7 @@
 @interface TableViewController ()
 {
     NSArray *data;
+    UILabel* numberOfBeaconsLabel;
 }
 
 @end
@@ -184,13 +185,16 @@
 
 
 
-
-        UILabel* numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 85, 320, 115)];
-        [numberLabel setBackgroundColor:[UIColor clearColor]];
-        [numberLabel setTextColor:[UIColor whiteColor]];
-        [numberLabel setTextAlignment:NSTextAlignmentCenter];
-        [numberLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:90.f]];
-        [numberLabel setText:[NSString stringWithFormat:@"%lu", datasourceArray.count]];
+        if (numberOfBeaconsLabel == nil) {
+            numberOfBeaconsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 85, 320, 115)];
+            [numberOfBeaconsLabel setBackgroundColor:[UIColor clearColor]];
+            [numberOfBeaconsLabel setTextColor:[UIColor whiteColor]];
+            [numberOfBeaconsLabel setTextAlignment:NSTextAlignmentCenter];
+            [numberOfBeaconsLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:90.f]];
+            
+            [cell addSubview:numberOfBeaconsLabel];
+        }
+        [numberOfBeaconsLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)datasourceArray.count]];
 
         UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 190, 320, 15)];
         [textLabel setBackgroundColor:[UIColor clearColor]];
@@ -202,7 +206,6 @@
 //        UILabel*
         [cell addSubview:locationLabel];
 
-        [cell addSubview:numberLabel];
         [cell addSubview:textLabel];
 //        [cell setBackgroundColor:[UIColor redColor]];
 
