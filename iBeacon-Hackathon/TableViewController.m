@@ -77,12 +77,14 @@
     }
 
 
-        [locationManager startUpdatingLocation];
+    [locationManager startUpdatingLocation];
+    
+    // Clear previous beacons
     for (CLBeaconRegion *region in locationManager.monitoredRegions) {
         [locationManager stopMonitoringForRegion:region];
         [locationManager stopRangingBeaconsInRegion:region];
     }
-
+    
     AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
     [afhttpManager GET:@"http://beaconhub.herokuapp.com/search/near/22.3657233/114.0464272/15.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
@@ -95,6 +97,9 @@
             NSArray* results = [NSJSONSerialization JSONObjectWithData:data1
                                                                options:0
                                                                  error:&error];
+            
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            
             for (id obj in results)
                 {
 
@@ -109,9 +114,18 @@
                     [hackathonRegion setNotifyOnExit:YES];
                     [hackathonRegion setNotifyEntryStateOnDisplay:YES];
                     
+                    NSString *beaconId = [NSString stringWithFormat:@"%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]];
+                    
+                    if ([obj objectForKey:@"link"] == [NSNull null])
+                        [dict setObject:@"" forKey:beaconId];
+                    else
+                        [dict setObject:[obj objectForKey:@"link"] forKey:beaconId];
+                    
                     [locationManager startMonitoringForRegion:hackathonRegion];
                     [locationManager startRangingBeaconsInRegion:hackathonRegion];
                 }
+            
+            [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"beaconService"];
 
                 //NSLog(@"result.count >> %d", results.count);
             [self.tableView reloadData];

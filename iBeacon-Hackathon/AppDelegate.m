@@ -63,6 +63,17 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [self clearNotifications:application];
+    
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    NSDictionary *beacon = [defs objectForKey:@"lastBeaconId"];
+    NSString *beaconId = [beacon objectForKey:@"beaconId"];
+    
+    if (beaconId != nil) {
+        NSDictionary *dict = [defs objectForKey:@"beaconService"];
+        NSString *serviceUrl = [dict objectForKey:beaconId];
+        
+        NSLog(@"%@", serviceUrl);
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

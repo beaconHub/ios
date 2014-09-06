@@ -24,7 +24,9 @@
 {
     NSMutableArray *viewControllers;
     PageViewToCellAnimation *pageViewToCellAnimation;
+    NSString *serviceUrl;
 }
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -148,6 +150,8 @@
                       descriptionDict,
                       addressDict
                       ];
+    
+    serviceUrl = [self.beaconObj valueForKey:@"link"];
 
 
 //    NSLog(@"CSParallaxHeaderViewController obj >> %@", self.beaconObj);
@@ -209,6 +213,7 @@
 - (void) urlButtonPressed
 {
     NSLog(@"<CSParallaxHeaderViewController> urlButtonPressed");
+    NSLog(@"link -> %@", serviceUrl);
 }
 
 
