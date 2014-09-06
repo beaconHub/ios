@@ -414,6 +414,7 @@
     return shouldFetchLocation;
 }
 
+#pragma mark - locationManager delegate
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 
@@ -439,24 +440,39 @@
 
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
-
-
-    UILocalNotification *aNotification = [[UILocalNotification alloc] init];
-    aNotification.timeZone = [NSTimeZone defaultTimeZone];
-    aNotification.alertBody = @"Notification triggered";
-    aNotification.alertAction = @"Details";
-    [[UIApplication sharedApplication] scheduleLocalNotification:aNotification];
+    NSString *stateString = nil;
+    switch (state) {
+        case CLRegionStateInside:
+            stateString = @"inside";
+            break;
+        case CLRegionStateOutside:
+            stateString = @"outside";
+            break;
+        case CLRegionStateUnknown:
+            stateString = @"unknown";
+            break;
+    }
+    
+    CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+    NSString *alertBody = [NSString stringWithFormat:@"Notification determined (%@): %@-%@", stateString, [beaconRegion major], [beaconRegion minor]];
+    NSLog(@"%@", alertBody);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
     NSLog(@"didEnterRegion");
 
+    CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+    NSString *alertBody = [NSString stringWithFormat:@"Notification triggered: %@-%@", [beaconRegion major], [beaconRegion minor]];
+    
     UILocalNotification *aNotification = [[UILocalNotification alloc] init];
     aNotification.timeZone = [NSTimeZone defaultTimeZone];
-    aNotification.alertBody = @"Notification triggered";
+    aNotification.alertBody = alertBody;
     aNotification.alertAction = @"Details";
-    [[UIApplication sharedApplication] scheduleLocalNotification:aNotification];
-
+    aNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    
+    if ([self shouldSendNotification:beaconRegion]) {
+        [[UIApplication sharedApplication] scheduleLocalNotification:aNotification];
+    }
 
 }
 
@@ -491,6 +507,27 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     NSLog(@"didFailed >> %@", error);
 }
+
+- (BOOL)shouldSendNotification:(CLBeaconRegion *)region
+{
+    NSDictionary *lastDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastBeaconId"];
+    NSString *lastBeaconId = [lastDict objectForKey:@"beaconId"];
+    NSDate *lastDate = [lastDict objectForKey:@"updated_at"];
+    NSTimeInterval lastTime = [lastDate timeIntervalSince1970];
+    NSString *currentBeaconId = [NSString stringWithFormat:@"%@-%@-%@", [region.proximityUUID UUIDString], [region major], [region minor]];
+    
+    NSDate *currentDate = [[NSDate alloc] init];
+    NSTimeInterval currentTime = [currentDate timeIntervalSince1970];
+    NSDictionary *dict = @{@"beaconId": currentBeaconId, @"updated_at": currentDate};
+    [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"lastBeaconId"];
+    
+    if ([currentBeaconId isEqualToString:lastBeaconId] && currentTime - lastTime <= 3600) {
+        return NO;
+    } else {
+        return YES;
+    };
+}
+
     ////
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -564,6 +601,8 @@
 //        //    [self.navigationController pushViewController:cntrinnerService animated:YES];
 //
 //}
+
+#pragma mark - StoryBoard
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 //    BeaconDetailViewController *nextView = segue.destinationViewController;
