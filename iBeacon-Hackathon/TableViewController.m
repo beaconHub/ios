@@ -479,6 +479,8 @@
     NSLog(@"didEnterRegion");
 
     CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+    NSString *monitorBeaconId = [NSString stringWithFormat:@"%@-%@-%@", [beaconRegion.proximityUUID UUIDString], [beaconRegion major], [beaconRegion minor]];
+    [[NSUserDefaults standardUserDefaults] setObject:monitorBeaconId forKey:@"monitorBeaconId"];
     NSString *alertBody = [NSString stringWithFormat:@"Notification triggered: %@-%@", [beaconRegion major], [beaconRegion minor]];
     
     UILocalNotification *aNotification = [[UILocalNotification alloc] init];

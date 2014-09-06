@@ -65,13 +65,16 @@
     [self clearNotifications:application];
     
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-    NSDictionary *beacon = [defs objectForKey:@"lastBeaconId"];
-    NSString *beaconId = [beacon objectForKey:@"beaconId"];
+    NSString *beaconId = [defs objectForKey:@"monitorBeaconId"];
     
     if (beaconId != nil) {
+        [defs removeObjectForKey:@"monitorBeaconId"];
         NSDictionary *dict = [defs objectForKey:@"beaconService"];
         NSString *serviceUrl = [dict objectForKey:beaconId];
         
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:serviceUrl delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+
         NSLog(@"%@", serviceUrl);
     }
 }
