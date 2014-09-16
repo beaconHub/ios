@@ -12,6 +12,7 @@
 #import "MainHostViewController.h"
 #import "ChameleonFramework/Chameleon.h"
 #import <TOMSMorphingLabel/TOMSMorphingLabel.h>
+#import "WebViewController.h"
 
 @interface CSParallaxHeaderViewController ()
 
@@ -106,7 +107,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+//    [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
@@ -255,8 +257,15 @@
 
 //        MKCoordinateRegionMake(<#CLLocationCoordinate2D centerCoordinate#>, <#MKCoordinateSpan span#>)
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake([[self.beaconObj valueForKey:@"lat"] doubleValue], [[self.beaconObj valueForKey:@"lng"] doubleValue]), 800, 800);
-       [mapView setRegion:[mapView regionThatFits:region] animated:YES];
 
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        [annotation setCoordinate:CLLocationCoordinate2DMake([[self.beaconObj valueForKey:@"lat"] doubleValue], [[self.beaconObj valueForKey:@"lng"] doubleValue])];
+
+
+
+
+       [mapView setRegion:[mapView regionThatFits:region] animated:YES];
+        [mapView addAnnotation:annotation];
         return cell;
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
         NSLog(@"its footer");
@@ -271,6 +280,14 @@
         return cell;
     }
     return nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    WebViewController* nextView = (WebViewController*)segue.destinationViewController;
+
+    [nextView setUrlString:[self.beaconObj valueForKey:@"url"]];
+//    NSLog(@"%@", self.beaconObj);
 }
 
 
