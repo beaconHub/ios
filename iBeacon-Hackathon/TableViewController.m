@@ -465,6 +465,7 @@
               location.coordinate.latitude,
               location.coordinate.longitude);
 
+        datasourceArray = [NSMutableArray new];
         AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
 //        [NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%f/%f.json", location.coordinate.latitude, location.coordinate.longitude];
         [afhttpManager GET:[NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%f/%f.json", location.coordinate.latitude, location.coordinate.longitude] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
