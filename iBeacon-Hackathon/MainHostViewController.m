@@ -34,17 +34,29 @@
 
         //加返scan for beacons
 
+    topLeftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 40, 40)];
 
+//    [topLeftButton setBackgroundColor:[UIColor blueColor]];
 //[self setNeedsStatusBarAppearanceUpdate];
+        //(15, 30, 18, 18)
     self.flatRoundedButton = [[VBFPopFlatButton alloc]initWithFrame:CGRectMake(15, 30, 18, 18)
                                                          buttonType:buttonAddType
                                                         buttonStyle:buttonPlainStyle];
-    self.flatRoundedButton.roundBackgroundColor = [UIColor colorWithRed:128/255.f green:169/255.f blue:217/255.f alpha:1.0];
+//    [self.flatRoundedButton setImageEdgeInsets:UIEdgeInsetsMake(15, 30, 0, 0)];
+
+//    [self.flatRoundedButton setContentEdgeInsets:UIEdgeInsetsMake(15,30, 0, 0)];
+
+//    self.flatRoundedButton.roundBackgroundColor = [UIColor colorWithRed:128/255.f green:169/255.f blue:217/255.f alpha:1.0];
+    [self.flatRoundedButton setBackgroundColor:[UIColor clearColor]];
+
     self.flatRoundedButton.lineThickness = 2;
     self.flatRoundedButton.linesColor = FlatSkyBlue;
-    [self.flatRoundedButton addTarget:self
-                               action:@selector(buttonPressed:)
-                     forControlEvents:UIControlEventTouchUpInside];
+    [topLeftButton addTarget:self
+                    action:@selector(buttonPressed:)
+        forControlEvents:UIControlEventTouchUpInside];
+//    [self.flatRoundedButton addTarget:self
+//                               action:@selector(buttonPressed:)
+//                     forControlEvents:UIControlEventTouchUpInside];
 //   [self.view addSubview:self.flatRoundedButton];
 
 
@@ -67,6 +79,7 @@
 
     [headerBar addSubview:self.flatRoundedButton];
 
+    [headerBar addSubview:topLeftButton];
 
 
     [self.view addSubview:headerBar];

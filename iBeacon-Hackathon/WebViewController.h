@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <OTMWebView/OTMWebView.h>
+@interface WebViewController : UIViewController <OTMWebViewDelegate>
+@property (strong, nonatomic) IBOutlet OTMWebView *webView;
 
-@interface WebViewController : UIViewController
+@property (nonatomic, copy) NSString* urlString;
 
 @end

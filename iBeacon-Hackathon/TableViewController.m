@@ -60,6 +60,7 @@
     jsonResponseDictionary = [NSMutableDictionary new];
 
     datasourceArray = [NSMutableArray new];
+    currentPlaceMark = [NSString new];
 
     if (nil == locationManager){
         locationManager = [[CLLocationManager alloc] init];
@@ -77,34 +78,6 @@
 
 
         [locationManager startUpdatingLocation];
-    AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
-    [afhttpManager GET:@"http://beaconhub.herokuapp.com/search/near/22.3657233/114.0464272/15.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-
-        if (responseObject != nil) {
-
-            NSString *responseString = [operation responseString];
-            NSData *data1= [responseString dataUsingEncoding:NSUTF8StringEncoding];
-            NSError *error;
-            NSArray* results = [NSJSONSerialization JSONObjectWithData:data1
-                                                               options:0
-                                                                 error:&error];
-            for (id obj in results)
-                {
-
-                [datasourceArray addObject: obj];
-                    //                NSDictionary *res=[results objectAtIndex:i];
-                    //                NSDictionary *res2=[res objectForKey:@"post"];
-                    //                [self.storesArray addObject:res2];
-
-                }
-
-                //NSLog(@"result.count >> %d", results.count);
-            [self.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
 
 
     self.tableView.emptyDataSetSource = self;
@@ -140,12 +113,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    static NSString *row0CellIdentifier = @"Row0Cell";
     static NSString *cellIdentifier = @"Cell";
 
         //check
     UITableViewCell *cell = nil;
+
+
         //check
 
+    if (indexPath.row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:row0CellIdentifier];
+    }else
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 
 
 
@@ -154,44 +134,75 @@
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 
         if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"Row0Cell"];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:row0CellIdentifier];
+//            UILabel* locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 70, 320, 20)];
+//            [locationLabel setBackgroundColor:[UIColor clearColor]];
+//            [locationLabel setTextColor:[UIColor whiteColor]];
+//            [locationLabel setTextAlignment:NSTextAlignmentCenter];
+//            [locationLabel setTag:1];
+//            [locationLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:23.f]];
+//            [locationLabel setText:[currentPlaceMark uppercaseString]];
+//
+//
+//
+//
+//            UILabel* numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 85, 320, 115)];
+//            [numberLabel setBackgroundColor:[UIColor clearColor]];
+//            [numberLabel setTextColor:[UIColor whiteColor]];
+//            [numberLabel setTextAlignment:NSTextAlignmentCenter];
+//            [numberLabel setTag:2];
+//            [numberLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:90.f]];
+//            [numberLabel setText:[NSString stringWithFormat:@"%d",datasourceArray.count]];
+
+//            UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 190, 320, 15)];
+//            [textLabel setBackgroundColor:[UIColor clearColor]];
+//            [textLabel setTextColor:[UIColor whiteColor]];
+//            [textLabel setTextAlignment:NSTextAlignmentCenter];
+//            [textLabel setTag:3];
+//            [textLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:20.f]];
+//            [textLabel setText:@"beacon services found"];
+
+                //        UILabel*
+//            [cell addSubview:locationLabel];
+//            
+//            [cell addSubview:numberLabel];
+//            [cell addSubview:textLabel];
+
         }else
-            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+           cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
 
     cell.backgroundColor = FlatSkyBlue;
     if (indexPath.row == 0){
 
-        UILabel* locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 70, 320, 20)];
+        UILabel* locationLabel = (UILabel*) [cell viewWithTag:1];
         [locationLabel setBackgroundColor:[UIColor clearColor]];
         [locationLabel setTextColor:[UIColor whiteColor]];
         [locationLabel setTextAlignment:NSTextAlignmentCenter];
         [locationLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:23.f]];
-        [locationLabel setText:@"PRINCE EDWARD"];
+        [locationLabel setNumberOfLines:1];
+        [locationLabel setAdjustsFontSizeToFitWidth:YES];
+        [locationLabel setMinimumScaleFactor:0.5f];
+        [locationLabel setText:[currentPlaceMark uppercaseString]];
 
 
 
 
-        UILabel* numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 85, 320, 115)];
+        UILabel* numberLabel = (UILabel*) [cell viewWithTag:2];
         [numberLabel setBackgroundColor:[UIColor clearColor]];
         [numberLabel setTextColor:[UIColor whiteColor]];
         [numberLabel setTextAlignment:NSTextAlignmentCenter];
         [numberLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:90.f]];
-        [numberLabel setText:@"39"];
+        [numberLabel setText:[NSString stringWithFormat:@"%d",datasourceArray.count]];
 
-        UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 190, 320, 15)];
+        UILabel* textLabel = (UILabel*) [cell viewWithTag:3];
         [textLabel setBackgroundColor:[UIColor clearColor]];
         [textLabel setTextColor:[UIColor whiteColor]];
         [textLabel setTextAlignment:NSTextAlignmentCenter];
         [textLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:20.f]];
         [textLabel setText:@"beacon services found"];
 
-//        UILabel*
-        [cell addSubview:locationLabel];
 
-        [cell addSubview:numberLabel];
-        [cell addSubview:textLabel];
-//        [cell setBackgroundColor:[UIColor redColor]];
 
         return cell;
 
@@ -232,51 +243,28 @@
     JCRBlurView* cellLine = (JCRBlurView*) [cell viewWithTag:4];
     [cellLine setAlpha:0.2f];
 
+    CLLocationDistance meters = [locationManager.location distanceFromLocation:[[CLLocation alloc] initWithLatitude:[[obj valueForKey:@"lat"] doubleValue] longitude:[[obj valueForKey:@"lng"] doubleValue]]];
 
+    NSLog(@"meters >> %f", ceil(meters));
     UILabel* distanceLabel = (UILabel*) [cell viewWithTag:3];
     [distanceLabel setBackgroundColor:[UIColor clearColor]];
     [distanceLabel setTextAlignment:NSTextAlignmentCenter];
     [distanceLabel setFont:[UIFont fontWithName:@"ProximaNova-Light" size:20.f]];
     [distanceLabel setTextColor:[UIColor whiteColor]];
-    [distanceLabel setText:@"25ft"];
 
-//    [cell addSubview:distanceLabel];
+    if (ceil(meters) < 1000.f) {
+        [distanceLabel setText:[NSString stringWithFormat:@"%dm",(int)(ceil(meters))]];
+    }else if (meters >= 1000.f)
+        [distanceLabel setText:[NSString stringWithFormat:@"%.2fkm",(ceil(meters)/1000.f)]];
 
 
-        //  [cell addSubview:cellLine];
+//    [distanceLabel setText:@"25ft"];
 
-//    [cell addSubview:appWebIconView];
-//    cell.textLabel.text = data[indexPath.row];
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return cell;
 }
 
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 130)];
-//
-//    UILabel* headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 320, 40)];
-//    [headerLabel setBackgroundColor:[UIColor clearColor]];
-//    [headerLabel setTextColor:[UIColor whiteColor]];
-//    [headerLabel setTextAlignment:NSTextAlignmentCenter];
-//    [headerLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:20.f]];
-//    [headerLabel setText:@"Discover"];
-//
-//    [headerView addSubview:headerLabel];
-//
-//        //    2014-08-30 23:18:01.582 iBeacon-Hackathon[878:476584] Proxima Nova
-//        //    2014-08-30 23:18:01.582 iBeacon-Hackathon[878:476584] ProximaNova-Regular
-//        //    2014-08-30 23:18:01.582 iBeacon-Hackathon[878:476584] ProximaNovaT-Thin
-//        //    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Bold
-//        //    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Light
-//
-//    [headerView setBackgroundColor:FlatSkyBlue];
-//
-//    return headerView;
-//}
-//
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    return 60.f;
-//}
+
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -301,10 +289,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.sourceView = [self.tableView cellForRowAtIndexPath:indexPath];
 
 
-    NSLog(@"didSelectRowAtIndexPath >> %d", indexPath.row);
+
+    if (indexPath.row !=0) {
+
+//    NSLog(@"didSelectRowAtIndexPath >> %d", indexPath.row);
+
+        self.sourceView = [self.tableView cellForRowAtIndexPath:indexPath];
 
     id obj = [datasourceArray objectAtIndex:indexPath.row - 1];
 //    PageViewController *pageViewController = [[PageViewController alloc] init];
@@ -318,6 +310,9 @@
     pageViewController.currentPage = indexPath.row;
     self.navigationController.delegate = self;
     [self.navigationController pushViewController:pageViewController animated:YES];
+
+    }
+
 }
 
 
@@ -469,11 +464,56 @@
         NSLog(@"latitude %+.6f, longitude %+.6f\n",
               location.coordinate.latitude,
               location.coordinate.longitude);
+
+        AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
+//        [NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%f/%f.json", location.coordinate.latitude, location.coordinate.longitude];
+        [afhttpManager GET:[NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%f/%f.json", location.coordinate.latitude, location.coordinate.longitude] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            NSLog(@"JSON: %@", responseObject);
+
+            if (responseObject != nil) {
+
+                NSString *responseString = [operation responseString];
+                NSData *data1= [responseString dataUsingEncoding:NSUTF8StringEncoding];
+                NSError *error;
+                NSArray* results = [NSJSONSerialization JSONObjectWithData:data1
+                                                                   options:0
+                                                                     error:&error];
+                for (id obj in results)
+                    {
+
+                    [datasourceArray addObject: obj];
+                        //                NSDictionary *res=[results objectAtIndex:i];
+                        //                NSDictionary *res2=[res objectForKey:@"post"];
+                        //                [self.storesArray addObject:res2];
+
+                    }
+
+                    //NSLog(@"result.count >> %d", results.count);
+                [self.tableView reloadData];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+
     }
 
+    CLGeocoder *locationGeocoded = [[CLGeocoder alloc] init];
+    [locationGeocoded reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = [placemarks objectAtIndex:0];
 
-    NSString* requestString = [NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%.6f/%.6f/14.json", location.coordinate.latitude, location.coordinate.longitude];
+        NSLog(@"currentPlaceMArk >> %@", placemark.name);
+        if (placemark == nil) {
+            currentPlaceMark = @"UNKNOWN";
+        }else{
+            currentPlaceMark = placemark.name;
+        }
+        [self.tableView reloadData];
+    }];
+
+
+//    NSString* requestString = [NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%.6f/%.6f/14.json", location.coordinate.latitude, location.coordinate.longitude];
 }
+
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     NSLog(@"didFailed >> %@", error);
@@ -634,6 +674,5 @@
 - (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView {
     
 }
-
 
 @end

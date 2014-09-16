@@ -17,6 +17,7 @@
 
     NSMutableDictionary* jsonResponseDictionary;
     NSMutableArray* datasourceArray;
+    NSString* currentPlaceMark;
 
 }
 
