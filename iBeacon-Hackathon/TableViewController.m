@@ -22,6 +22,7 @@
 @interface TableViewController ()
 {
     NSArray *data;
+    UILabel* numberOfBeaconsLabel;
 }
 
 @end
@@ -77,7 +78,66 @@
     }
 
 
+
         [locationManager startUpdatingLocation];
+
+    [locationManager startUpdatingLocation];
+    
+    // Clear previous beacons
+    for (CLBeaconRegion *region in locationManager.monitoredRegions) {
+        [locationManager stopMonitoringForRegion:region];
+        [locationManager stopRangingBeaconsInRegion:region];
+    }
+    
+    AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
+    [afhttpManager GET:@"http://beaconhub.herokuapp.com/search/near/22.3657233/114.0464272/15.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+
+        if (responseObject != nil) {
+
+            NSString *responseString = [operation responseString];
+            NSData *data1= [responseString dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error;
+            NSArray* results = [NSJSONSerialization JSONObjectWithData:data1
+                                                               options:0
+                                                                 error:&error];
+            
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            
+            for (id obj in results)
+                {
+
+                [datasourceArray addObject: obj];
+                    //                NSDictionary *res=[results objectAtIndex:i];
+                    //                NSDictionary *res2=[res objectForKey:@"post"];
+                    //                [self.storesArray addObject:res2];
+
+                    CLBeaconRegion* hackathonRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[obj objectForKey:@"uuid"]] major:[[obj objectForKey:@"major"] integerValue] minor:[[obj objectForKey:@"minor"] integerValue] identifier:[NSString stringWithFormat:@"beacon-%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]]];
+                    
+                    [hackathonRegion setNotifyOnEntry:YES];
+                    [hackathonRegion setNotifyOnExit:YES];
+                    [hackathonRegion setNotifyEntryStateOnDisplay:YES];
+                    
+                    NSString *beaconId = [NSString stringWithFormat:@"%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]];
+                    
+                    if ([obj objectForKey:@"link"] == [NSNull null])
+                        [dict setObject:@"" forKey:beaconId];
+                    else
+                        [dict setObject:[obj objectForKey:@"link"] forKey:beaconId];
+                    
+                    [locationManager startMonitoringForRegion:hackathonRegion];
+                    [locationManager startRangingBeaconsInRegion:hackathonRegion];
+                }
+            
+            [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"beaconService"];
+
+                //NSLog(@"result.count >> %d", results.count);
+            [self.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
 
 
     self.tableView.emptyDataSetSource = self;
@@ -188,12 +248,25 @@
 
 
 
+
         UILabel* numberLabel = (UILabel*) [cell viewWithTag:2];
         [numberLabel setBackgroundColor:[UIColor clearColor]];
         [numberLabel setTextColor:[UIColor whiteColor]];
         [numberLabel setTextAlignment:NSTextAlignmentCenter];
         [numberLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:90.f]];
         [numberLabel setText:[NSString stringWithFormat:@"%d",datasourceArray.count]];
+
+        if (numberOfBeaconsLabel == nil) {
+            numberOfBeaconsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 85, 320, 115)];
+            [numberOfBeaconsLabel setBackgroundColor:[UIColor clearColor]];
+            [numberOfBeaconsLabel setTextColor:[UIColor whiteColor]];
+            [numberOfBeaconsLabel setTextAlignment:NSTextAlignmentCenter];
+            [numberOfBeaconsLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:90.f]];
+            
+            [cell addSubview:numberOfBeaconsLabel];
+        }
+        [numberOfBeaconsLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)datasourceArray.count]];
+
 
         UILabel* textLabel = (UILabel*) [cell viewWithTag:3];
         [textLabel setBackgroundColor:[UIColor clearColor]];
@@ -202,6 +275,11 @@
         [textLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:20.f]];
         [textLabel setText:@"beacon services found"];
 
+
+
+
+        [cell addSubview:textLabel];
+//        [cell setBackgroundColor:[UIColor redColor]];
 
 
         return cell;
@@ -396,6 +474,7 @@
     return shouldFetchLocation;
 }
 
+#pragma mark - locationManager delegate
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 
@@ -421,24 +500,41 @@
 
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
-
-
-    UILocalNotification *aNotification = [[UILocalNotification alloc] init];
-    aNotification.timeZone = [NSTimeZone defaultTimeZone];
-    aNotification.alertBody = @"Notification triggered";
-    aNotification.alertAction = @"Details";
-    [[UIApplication sharedApplication] scheduleLocalNotification:aNotification];
+    NSString *stateString = nil;
+    switch (state) {
+        case CLRegionStateInside:
+            stateString = @"inside";
+            break;
+        case CLRegionStateOutside:
+            stateString = @"outside";
+            break;
+        case CLRegionStateUnknown:
+            stateString = @"unknown";
+            break;
+    }
+    
+    CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+    NSString *alertBody = [NSString stringWithFormat:@"Notification determined (%@): %@-%@", stateString, [beaconRegion major], [beaconRegion minor]];
+    NSLog(@"%@", alertBody);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
     NSLog(@"didEnterRegion");
 
+    CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+    NSString *monitorBeaconId = [NSString stringWithFormat:@"%@-%@-%@", [beaconRegion.proximityUUID UUIDString], [beaconRegion major], [beaconRegion minor]];
+    [[NSUserDefaults standardUserDefaults] setObject:monitorBeaconId forKey:@"monitorBeaconId"];
+    NSString *alertBody = [NSString stringWithFormat:@"Notification triggered: %@-%@", [beaconRegion major], [beaconRegion minor]];
+    
     UILocalNotification *aNotification = [[UILocalNotification alloc] init];
     aNotification.timeZone = [NSTimeZone defaultTimeZone];
-    aNotification.alertBody = @"Notification triggered";
+    aNotification.alertBody = alertBody;
     aNotification.alertAction = @"Details";
-    [[UIApplication sharedApplication] scheduleLocalNotification:aNotification];
-
+    aNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    
+    if ([self shouldSendNotification:beaconRegion]) {
+        [[UIApplication sharedApplication] scheduleLocalNotification:aNotification];
+    }
 
 }
 
@@ -519,6 +615,27 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     NSLog(@"didFailed >> %@", error);
 }
+
+- (BOOL)shouldSendNotification:(CLBeaconRegion *)region
+{
+    NSDictionary *lastDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastBeaconId"];
+    NSString *lastBeaconId = [lastDict objectForKey:@"beaconId"];
+    NSDate *lastDate = [lastDict objectForKey:@"updated_at"];
+    NSTimeInterval lastTime = [lastDate timeIntervalSince1970];
+    NSString *currentBeaconId = [NSString stringWithFormat:@"%@-%@-%@", [region.proximityUUID UUIDString], [region major], [region minor]];
+    
+    NSDate *currentDate = [[NSDate alloc] init];
+    NSTimeInterval currentTime = [currentDate timeIntervalSince1970];
+    NSDictionary *dict = @{@"beaconId": currentBeaconId, @"updated_at": currentDate};
+    [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"lastBeaconId"];
+    
+    if ([currentBeaconId isEqualToString:lastBeaconId] && currentTime - lastTime <= 3600) {
+        return NO;
+    } else {
+        return YES;
+    };
+}
+
     ////
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -592,6 +709,8 @@
 //        //    [self.navigationController pushViewController:cntrinnerService animated:YES];
 //
 //}
+
+#pragma mark - StoryBoard
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 //    BeaconDetailViewController *nextView = segue.destinationViewController;
