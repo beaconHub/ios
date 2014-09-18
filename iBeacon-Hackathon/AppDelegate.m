@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import <Crashlytics/Crashlytics.h>
+
 @interface AppDelegate ()
 
 @end
@@ -32,6 +34,7 @@
 //    2014-08-30 23:18:01.582 iBeacon-Hackathon[878:476584] ProximaNovaT-Thin
 //    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Bold
 //    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Light
+    [Crashlytics startWithAPIKey:@"a73df0ceadf9f0995f97da85f3a3ca791c3e0de1"];
 
     UIApplication *app = [UIApplication sharedApplication];
     if ([app respondsToSelector:@selector(registerForRemoteNotifications)]) {

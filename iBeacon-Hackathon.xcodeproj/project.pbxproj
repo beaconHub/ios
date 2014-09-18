@@ -77,6 +77,7 @@
 		CE8E62A6199F476B00424866 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E62A5199F476B00424866 /* SystemConfiguration.framework */; };
 		CE8F185F199E167C00489139 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8F185E199E167C00489139 /* Image.xcassets */; };
 		CE9BC95C19A086D800629D8E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9BC95B19A086D800629D8E /* CoreBluetooth.framework */; };
+		D1F1AD3C19CA7AF400E1011E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F1AD3B19CA7AF400E1011E /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +179,7 @@
 		CE8E62A5199F476B00424866 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE8F185E199E167C00489139 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		CE9BC95B19A086D800629D8E /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		D1F1AD3B19CA7AF400E1011E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FE559F8E7EA1490191CEE423 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 				CE8E62A0199F475700424866 /* libz.dylib in Frameworks */,
 				CE8E629E199F475000424866 /* libicucore.dylib in Frameworks */,
 				CE8E629C199F474500424866 /* libc++.dylib in Frameworks */,
+				D1F1AD3C19CA7AF400E1011E /* Crashlytics.framework in Frameworks */,
 				CE8E629A199F473B00424866 /* ImageIO.framework in Frameworks */,
 				CE8E6298199F473500424866 /* GLKit.framework in Frameworks */,
 				CE8E6296199F472F00424866 /* CoreText.framework in Frameworks */,
@@ -364,6 +367,7 @@
 		DB65E01BBB784BCBAC3ABBA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1F1AD3B19CA7AF400E1011E /* Crashlytics.framework */,
 				CE20F65B19B1B91B00B8628C /* CoreGraphics.framework */,
 				CE526E6719AEED290065E511 /* MapKit.framework */,
 				CE9BC95B19A086D800629D8E /* CoreBluetooth.framework */,
@@ -398,6 +402,7 @@
 				CE321A33199E123A00D7787E /* Frameworks */,
 				CE321A34199E123A00D7787E /* Resources */,
 				68E5C6D7E4054C0DB33A5389 /* Copy Pods Resources */,
+				D1F1AD3A19CA7A4900E1011E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -515,6 +520,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D1F1AD3A19CA7A4900E1011E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run a73df0ceadf9f0995f97da85f3a3ca791c3e0de1 bf3ab1034c5cd75609e3800f03579bcde8e8b5508ad8217db336d49533c768c0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
