@@ -80,7 +80,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3412C2D01B1B4FA2B7D833C4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2839EF33784C55FCA861CB70 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CCCD5B58E1E4B98775C247D3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CE10A9FB199E16FF009D100B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CE115DA9199FA2A000682D97 /* panghoming.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = panghoming.jpg; sourceTree = "<group>"; };
 		CE115DAB199FB7E600682D97 /* harryng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = harryng.jpg; sourceTree = "<group>"; };
@@ -208,6 +209,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E14AAC124A6AF0CDBCB615C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCCD5B58E1E4B98775C247D3 /* Pods.debug.xcconfig */,
+				2839EF33784C55FCA861CB70 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CE20F66D19B2F65900B8628C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,8 +241,8 @@
 				CE321A38199E123A00D7787E /* iBeacon-Hackathon */,
 				CE321A4F199E123B00D7787E /* iBeacon-HackathonTests */,
 				CE321A37199E123A00D7787E /* Products */,
-				3412C2D01B1B4FA2B7D833C4 /* Pods.xcconfig */,
 				DB65E01BBB784BCBAC3ABBA8 /* Frameworks */,
+				5E14AAC124A6AF0CDBCB615C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -409,7 +419,7 @@
 				TargetAttributes = {
 					CE321A35199E123A00D7787E = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = AGZF5SET8S;
+						DevelopmentTeam = 49V87TT95M;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -503,7 +513,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -621,7 +631,7 @@
 		};
 		CE321A57199E123B00D7787E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3412C2D01B1B4FA2B7D833C4 /* Pods.xcconfig */;
+			baseConfigurationReference = CCCD5B58E1E4B98775C247D3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -641,11 +651,11 @@
 		};
 		CE321A58199E123B00D7787E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3412C2D01B1B4FA2B7D833C4 /* Pods.xcconfig */;
+			baseConfigurationReference = 2839EF33784C55FCA861CB70 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: STAY REAL LIMITED";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: STAY REAL LIMITED";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -655,7 +665,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d2f712ef-c00d-4951-9099-2eda90ab7b78";
 			};
 			name = Release;
 		};
