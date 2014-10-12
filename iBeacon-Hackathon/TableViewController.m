@@ -89,57 +89,6 @@
         [locationManager stopRangingBeaconsInRegion:region];
     }
     
-//    AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
-//    [afhttpManager GET:@"http://beaconhub.herokuapp.com/search/near/22.3657233/114.0464272/15.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"JSON: %@", responseObject);
-//
-//        if (responseObject != nil) {
-//
-//            NSString *responseString = [operation responseString];
-//            NSData *data1= [responseString dataUsingEncoding:NSUTF8StringEncoding];
-//            NSError *error;
-//            NSArray* results = [NSJSONSerialization JSONObjectWithData:data1
-//                                                               options:0
-//                                                                 error:&error];
-//            
-//            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//            
-//            for (id obj in results)
-//                {
-//
-//                [datasourceArray addObject: obj];
-//                    //                NSDictionary *res=[results objectAtIndex:i];
-//                    //                NSDictionary *res2=[res objectForKey:@"post"];
-//                    //                [self.storesArray addObject:res2];
-//
-//                    CLBeaconRegion* hackathonRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[obj objectForKey:@"uuid"]] major:[[obj objectForKey:@"major"] integerValue] minor:[[obj objectForKey:@"minor"] integerValue] identifier:[NSString stringWithFormat:@"beacon-%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]]];
-//                    
-//                    [hackathonRegion setNotifyOnEntry:YES];
-//                    [hackathonRegion setNotifyOnExit:YES];
-//                    [hackathonRegion setNotifyEntryStateOnDisplay:YES];
-//                    
-//                    NSString *beaconId = [NSString stringWithFormat:@"%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]];
-//                    
-//                    if ([obj objectForKey:@"link"] == [NSNull null])
-//                        [dict setObject:@"" forKey:beaconId];
-//                    else
-//                        [dict setObject:[obj objectForKey:@"link"] forKey:beaconId];
-//                    
-//                    [locationManager startMonitoringForRegion:hackathonRegion];
-//                    [locationManager startRangingBeaconsInRegion:hackathonRegion];
-//                }
-//            
-//            [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"beaconService"];
-//
-//                //NSLog(@"result.count >> %d", results.count);
-//            [self.tableView reloadData];
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
-
-
-
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
 
@@ -566,7 +515,6 @@
         AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
 //        [NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%f/%f.json", location.coordinate.latitude, location.coordinate.longitude];
         [afhttpManager GET:[NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%f/%f.json", location.coordinate.latitude, location.coordinate.longitude] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSLog(@"JSON: %@", responseObject);
 
             if (responseObject != nil) {
 
@@ -577,14 +525,22 @@
                                                                    options:0
                                                                      error:&error];
                 for (id obj in results)
-                    {
+                {
 
                     [datasourceArray addObject: obj];
-                        //                NSDictionary *res=[results objectAtIndex:i];
-                        //                NSDictionary *res2=[res objectForKey:@"post"];
-                        //                [self.storesArray addObject:res2];
 
-                    }
+                    CLBeaconRegion* hackathonRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[obj objectForKey:@"uuid"]] major:[[obj objectForKey:@"major"] integerValue] minor:[[obj objectForKey:@"minor"] integerValue] identifier:[NSString stringWithFormat:@"beacon-%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]]];
+                    
+                    [hackathonRegion setNotifyOnEntry:YES];
+                    [hackathonRegion setNotifyOnExit:YES];
+                    [hackathonRegion setNotifyEntryStateOnDisplay:YES];
+                    
+                    NSString *beaconId = [NSString stringWithFormat:@"%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]];
+                    
+                    [locationManager startMonitoringForRegion:hackathonRegion];
+                    [locationManager startRangingBeaconsInRegion:hackathonRegion];
+                
+                }
 
                     //NSLog(@"result.count >> %d", results.count);
                 [self.tableView reloadData];
