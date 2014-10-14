@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <Crashlytics/Crashlytics.h>
+#import <Mixpanel/Mixpanel.h>
 
 @interface AppDelegate ()
 
@@ -35,6 +36,8 @@
 //    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Bold
 //    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Light
     [Crashlytics startWithAPIKey:@"a73df0ceadf9f0995f97da85f3a3ca791c3e0de1"];
+    Mixpanel *mixpanel = [Mixpanel sharedInstanceWithToken:@"356a46fa875147baf96e9d08324c16b4"];
+    [mixpanel track:@"Start"];
 
     UIApplication *app = [UIApplication sharedApplication];
     if ([app respondsToSelector:@selector(registerForRemoteNotifications)]) {
