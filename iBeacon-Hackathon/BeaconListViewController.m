@@ -70,9 +70,12 @@
     }
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-    
+
+
+//    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler];
+//    [[UIApplication sharedApplication] endBackgroundTask:];
     // Set a movement threshold for new events.
-    locationManager.distanceFilter = 500; // meters
+//    locationManager.distanceFilter = 500; // meters
 
     [self.tableView setHidden:NO];
     [self.mapView setHidden:YES];
@@ -168,7 +171,7 @@
 
     if ([CLLocationManager locationServicesEnabled]) {
         switch ([CLLocationManager authorizationStatus]) {
-            case kCLAuthorizationStatusAuthorizedAlways:
+            case kCLAuthorizationStatusAuthorized:
                 shouldFetchLocation= YES;
                 break;
             case kCLAuthorizationStatusDenied:
@@ -211,11 +214,13 @@
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 
 
-    if (status == kCLAuthorizationStatusAuthorizedAlways) {
+    if (status == kCLAuthorizationStatusAuthorized) {
         NSLog(@"kCLAuthorizationStatusAuthorizedAlways");
     }else if(status == kCLAuthorizationStatusNotDetermined){
         NSLog(@"kCLAuthorizationStatusNotDetermined");
-        [locationManager startUpdatingLocation];
+//        [locationManager startUpdatingLocation];
+
+        [locationManager startMonitoringSignificantLocationChanges];
     }
         // NSLog(@"authorizationstatus >> %@", status);
 
