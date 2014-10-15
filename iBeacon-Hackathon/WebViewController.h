@@ -12,5 +12,5 @@
 @property (strong, nonatomic) IBOutlet OTMWebView *webView;
 
 @property (nonatomic, copy) NSString* urlString;
-
+@property (nonatomic, copy) NSString* beaconName;
 @end

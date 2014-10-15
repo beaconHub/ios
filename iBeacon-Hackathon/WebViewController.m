@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self setTitle:self.beaconName];
     // Do any additional setup after loading the view.
 
     self.webView.userAgent = @"My User Agent String";

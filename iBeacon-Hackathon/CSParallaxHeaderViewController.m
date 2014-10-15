@@ -292,6 +292,12 @@
     WebViewController* nextView = (WebViewController*)segue.destinationViewController;
 
     [nextView setUrlString:[self.beaconObj valueForKey:@"url"]];
+
+    if ([self.beaconObj valueForKey:@"name"] != [NSNull null])
+        [nextView setBeaconName:[self.beaconObj valueForKey:@"name"];
+    else
+         [nextView setBeaconName:@"NULL"];
+
 //    NSLog(@"%@", self.beaconObj);
 }
 
