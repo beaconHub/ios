@@ -125,34 +125,6 @@
 
 
 
-    AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
-    [afhttpManager GET:@"http://beaconhub.herokuapp.com/search/near/22.3657233/114.0464272/15.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-
-        if (responseObject != nil) {
-
-            NSString *responseString = [operation responseString];
-            NSData *data= [responseString dataUsingEncoding:NSUTF8StringEncoding];
-            NSError *error;
-            NSArray* results = [NSJSONSerialization JSONObjectWithData:data
-                                                               options:0
-                                                                 error:&error];
-            for (id obj in results)
-                {
-
-                [datasourceArray addObject: obj];
-                    //                NSDictionary *res=[results objectAtIndex:i];
-                    //                NSDictionary *res2=[res objectForKey:@"post"];
-                    //                [self.storesArray addObject:res2];
-
-                }
-
-                  NSLog(@"result.count >> %d", results.count);
-//                锸锸锸锸锸锸锸锸金 [self.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
 
 
     self.tableView.emptyDataSetSource = self;
@@ -281,9 +253,40 @@
               location.coordinate.latitude,
               location.coordinate.longitude);
     }
-    
+
+    datasourceArray = [NSMutableArray new];
     
     NSString* requestString = [NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%.6f/%.6f/14.json", location.coordinate.latitude, location.coordinate.longitude];
+
+    AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
+    [afhttpManager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+
+        if (responseObject != nil) {
+
+            NSString *responseString = [operation responseString];
+            NSData *data= [responseString dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error;
+            NSArray* results = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:&error];
+            for (id obj in results)
+                {
+
+                [datasourceArray addObject: obj];
+                    //                NSDictionary *res=[results objectAtIndex:i];
+                    //                NSDictionary *res2=[res objectForKey:@"post"];
+                    //                [self.storesArray addObject:res2];
+
+                }
+
+//            NSLog(@"result.count >> %d", results.count);
+                //                锸锸锸锸锸锸锸锸金 [self.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
    }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
