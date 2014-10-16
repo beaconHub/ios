@@ -474,9 +474,15 @@
     CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
     NSString *monitorBeaconId = [NSString stringWithFormat:@"%@-%@-%@", [beaconRegion.proximityUUID UUIDString], [beaconRegion major], [beaconRegion minor]];
     [[NSUserDefaults standardUserDefaults] setObject:monitorBeaconId forKey:@"monitorBeaconId"];
-    NSString *alertBody = [NSString stringWithFormat:@"Notification triggered: %@-%@", [beaconRegion major], [beaconRegion minor]];
+    
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"beacons"];
+    NSDictionary *beaconService = [dict objectForKey:monitorBeaconId];
+    NSString *serviceName = [[beaconService objectForKey:@"name"] stringByReplacingOccurrencesOfString:@"'" withString:@"\'"];
+    
+    NSString *alertBody = [NSString stringWithFormat:@"You just entered %@", serviceName];
     
     UILocalNotification *aNotification = [[UILocalNotification alloc] init];
+    
     aNotification.timeZone = [NSTimeZone defaultTimeZone];
     aNotification.alertBody = alertBody;
     aNotification.alertAction = @"Details";
@@ -513,7 +519,7 @@
 
         datasourceArray = [NSMutableArray new];
         AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
-//        [NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%f/%f.json", location.coordinate.latitude, location.coordinate.longitude];
+
         [afhttpManager GET:[NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%f/%f.json", location.coordinate.latitude, location.coordinate.longitude] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
             if (responseObject != nil) {
@@ -524,6 +530,10 @@
                 NSArray* results = [NSJSONSerialization JSONObjectWithData:data1
                                                                    options:0
                                                                      error:&error];
+                
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"beacons"];
+                NSMutableDictionary *beacons = [NSMutableDictionary dictionary];
+                
                 for (id obj in results)
                 {
 
@@ -535,14 +545,24 @@
                     [hackathonRegion setNotifyOnExit:YES];
                     [hackathonRegion setNotifyEntryStateOnDisplay:YES];
                     
-                    NSString *beaconId = [NSString stringWithFormat:@"%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]];
-                    
                     [locationManager startMonitoringForRegion:hackathonRegion];
                     [locationManager startRangingBeaconsInRegion:hackathonRegion];
+                    
+                    NSString *link;
+                    if ([obj objectForKey:@"link"] == [NSNull null]) {
+                        link = @"";
+                    } else {
+                        link = [obj objectForKey:@"link"];
+                    }
+                    
+                    NSDictionary *dict = @{@"url": link, @"name": [obj objectForKey:@"name"]};
+                    NSString *beaconId = [NSString stringWithFormat:@"%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]];
+                    [beacons setObject:dict forKey:beaconId];
                 
                 }
-
-                    //NSLog(@"result.count >> %d", results.count);
+                
+                [[NSUserDefaults standardUserDefaults] setObject:beacons forKey:@"beacons"];
+                
                 [self.tableView reloadData];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -564,8 +584,6 @@
         [self.tableView reloadData];
     }];
 
-
-//    NSString* requestString = [NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%.6f/%.6f/14.json", location.coordinate.latitude, location.coordinate.longitude];
 }
 
 
@@ -586,7 +604,7 @@
     NSDictionary *dict = @{@"beaconId": currentBeaconId, @"updated_at": currentDate};
     [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"lastBeaconId"];
     
-    if ([currentBeaconId isEqualToString:lastBeaconId] && currentTime - lastTime <= 3600) {
+    if ([currentBeaconId isEqualToString:lastBeaconId] && currentTime - lastTime <= 60) {
         return NO;
     } else {
         return YES;
