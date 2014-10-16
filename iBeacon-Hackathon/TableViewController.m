@@ -554,8 +554,14 @@
                     } else {
                         link = [obj objectForKey:@"link"];
                     }
+                    NSString *address;
+                    if ([obj objectForKey:@"address"] == [NSNull null]) {
+                        address = @"";
+                    } else {
+                        address = [obj objectForKey:@"address"];
+                    }
                     
-                    NSDictionary *dict = @{@"url": link, @"name": [obj objectForKey:@"name"]};
+                    NSDictionary *dict = @{@"name": [obj objectForKey:@"name"], @"description": @"", @"uuid": [obj objectForKey:@"uuid"], @"major": [obj objectForKey:@"major"], @"minor": [obj objectForKey:@"minor"], @"lat": [obj objectForKey:@"lat"], @"lng": [obj objectForKey:@"lng"], @"address": address, @"url": link};
                     NSString *beaconId = [NSString stringWithFormat:@"%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]];
                     [beacons setObject:dict forKey:beaconId];
                 
