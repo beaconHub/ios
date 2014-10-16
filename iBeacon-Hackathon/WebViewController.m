@@ -18,7 +18,11 @@
 
 @implementation WebViewController
 
+
+
+
 - (void)viewDidLoad {
+
     [super viewDidLoad];
 
     [self setTitle:self.beaconName];
@@ -31,6 +35,7 @@
 
 
     UINavigationBar *navBar = self.navigationController.navigationBar;
+
     self.progressBar = [[OTMWebViewProgressBar alloc]init];
     CGFloat progressBarHeight = 3.0;
     self.progressBar.frame = CGRectMake(0.0, 60 , 320, progressBarHeight);
@@ -78,7 +83,7 @@
         //[parentView.flatRoundedButton setAlpha:1.0];
 
     [parentView.flatRoundedButton animateToType:buttonBackType];
-    [parentView.headerLabel setText:@"webView"];
+    [parentView.headerLabel setText:self.beaconName];
     
     
 }

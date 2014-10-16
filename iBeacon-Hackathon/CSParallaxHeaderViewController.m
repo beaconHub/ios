@@ -257,8 +257,7 @@
 
         [mapView setDelegate:self];
 
-        NSLog(@"mapview obj lat  >> %@", [self.beaconObj valueForKey:@"lat"]);
-        NSLog(@"mapview obj lng  >> %@", [self.beaconObj valueForKey:@"lng"]);
+
 
 //        MKCoordinateRegionMake(<#CLLocationCoordinate2D centerCoordinate#>, <#MKCoordinateSpan span#>)
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake([[self.beaconObj valueForKey:@"lat"] doubleValue], [[self.beaconObj valueForKey:@"lng"] doubleValue]), 800, 800);
@@ -273,7 +272,7 @@
         [mapView addAnnotation:annotation];
         return cell;
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
-        NSLog(@"its footer");
+
 
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"footer"
@@ -281,6 +280,10 @@
         UIButton* btn = (UIButton*) [cell viewWithTag:1];
         [btn addTarget:self action:@selector(urlButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
+
+        if ([self.beaconObj valueForKey:@"link"]  == [NSNull null]) {
+            [btn setEnabled: FALSE];
+        }
         [cell setBackgroundColor:FlatRed];
         return cell;
     }
