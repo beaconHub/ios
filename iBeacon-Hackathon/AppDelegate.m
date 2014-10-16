@@ -10,6 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <Crashlytics/Crashlytics.h>
 #import <Mixpanel/Mixpanel.h>
+#import "CSParallaxHeaderViewController.h"
 
 @interface AppDelegate ()
 
@@ -55,11 +56,18 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
+
+
 }
+
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+    UINavigationController* navController = (UINavigationController*) [self.window.rootViewController.childViewControllers objectAtIndex:0];
+    [navController popToRootViewControllerAnimated:NO];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -75,13 +83,32 @@
     
     if (beaconId != nil) {
         [defs removeObjectForKey:@"monitorBeaconId"];
-        NSDictionary *dict = [defs objectForKey:@"beaconService"];
-        NSString *serviceUrl = [dict objectForKey:beaconId];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:serviceUrl delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        NSDictionary *beacons = [defs objectForKey:@"beacons"];
+        NSDictionary *beaconObj = [beacons objectForKey:beaconId];
 
-        NSLog(@"%@", serviceUrl);
+
+
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+        UINavigationController* navController = (UINavigationController*) [self.window.rootViewController.childViewControllers objectAtIndex:0];
+
+        CSParallaxHeaderViewController *pageViewController = [storyboard instantiateViewControllerWithIdentifier:@"CSParallaxHeaderViewController"];
+
+        [pageViewController setBeaconObj:beaconObj];
+
+
+            //    pageViewController.data = data;
+//        pageViewController.currentPage = indexPath.row;
+//        self.navigationController.delegate = self;
+        [navController pushViewController:pageViewController animated:YES];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:serviceUrl delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        [alert show];
+
+
+
+
+
+//        NSLog(@"%@", serviceUrl);
     }
 }
 
