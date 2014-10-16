@@ -97,18 +97,7 @@
         [pageViewController setBeaconObj:beaconObj];
 
 
-            //    pageViewController.data = data;
-//        pageViewController.currentPage = indexPath.row;
-//        self.navigationController.delegate = self;
         [navController pushViewController:pageViewController animated:YES];
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:serviceUrl delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        [alert show];
-
-
-
-
-
-//        NSLog(@"%@", serviceUrl);
     }
 }
 
@@ -123,8 +112,6 @@
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive) {
         NSLog(@"application active didreceivelocationnotification");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:notification.alertBody delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
     } else if (state == UIApplicationStateInactive) {
         NSLog(@"application inactive didreceivelocationnotification");
     }
