@@ -282,6 +282,8 @@
 
 //            NSLog(@"result.count >> %d", results.count);
                 //                锸锸锸锸锸锸锸锸金 [self.tableView reloadData];
+
+            [self.tableView reloadData];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
