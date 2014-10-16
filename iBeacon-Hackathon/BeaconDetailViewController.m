@@ -12,7 +12,6 @@
 #define CONTENT_IMAGE_VIEW_TAG 102
 
 #import "BeaconDetailViewController.h"
-
 #import "MHYahooParallaxView.h"
 #import "MHTsekotCell.h"
 
@@ -32,7 +31,7 @@
     parallaxView.datasource = self;
     [self.view addSubview:parallaxView];
 
-    NSLog(@"beaonObj >> %@", self.beaconObj);
+//    NSLog(@"beaonObj >> %@", self.beaconObj);
 
         // Do any additional setup after loading the view, typically from a nib.
 }
@@ -67,7 +66,7 @@
 
         // leftIndex and Right Index should must be greater than or equal to zero
     
-    NSLog(@"parallaxViewDidScrollHorizontally >> %d", rightIndex);
+//    NSLog(@"parallaxViewDidScrollHorizontally >> %d", rightIndex);
 
     if(leftIndex >= 0){
         MHTsekotCell * leftCell = (MHTsekotCell*)[parallaxView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:leftIndex inSection:0]];
@@ -162,15 +161,6 @@
             [nameLabel setTextAlignment:NSTextAlignmentRight];
             [cell.contentView addSubview:nameLabel];
 
-
-
-
-
-
-
-
-
-
             //[cell.contentView addSubview:view02];
             
             UIView* view03 = [[UIView alloc] initWithFrame:CGRectMake(110, _imageHeaderHeight - 25.f, 210, 20)];
@@ -207,7 +197,7 @@
 
         }
         UIImageView *imageView = (UIImageView*)[cell viewWithTag:CONTENT_IMAGE_VIEW_TAG];
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"content-%i",(tableView.tag%3) + 1]];
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"content-%li",(tableView.tag%3) + 1]];
         [imageView setContentMode:UIViewContentModeScaleAspectFill];
     }
 
