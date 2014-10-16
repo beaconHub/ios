@@ -294,7 +294,7 @@
     [nextView setUrlString:[self.beaconObj valueForKey:@"link"]];
 
     if ([self.beaconObj valueForKey:@"name"] != [NSNull null])
-        [nextView setBeaconName:[self.beaconObj valueForKey:@"name"];
+        [nextView setBeaconName:[self.beaconObj valueForKey:@"name"]];
     else
          [nextView setBeaconName:@"NULL"];
 
