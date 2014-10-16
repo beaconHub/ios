@@ -561,7 +561,7 @@
                         address = [obj objectForKey:@"address"];
                     }
                     
-                    NSDictionary *dict = @{@"name": [obj objectForKey:@"name"], @"description": @"", @"uuid": [obj objectForKey:@"uuid"], @"major": [obj objectForKey:@"major"], @"minor": [obj objectForKey:@"minor"], @"lat": [obj objectForKey:@"lat"], @"lng": [obj objectForKey:@"lng"], @"address": address, @"url": link};
+                    NSDictionary *dict = @{@"name": [obj objectForKey:@"name"], @"description": @"", @"uuid": [obj objectForKey:@"uuid"], @"major": [obj objectForKey:@"major"], @"minor": [obj objectForKey:@"minor"], @"lat": [obj objectForKey:@"lat"], @"lng": [obj objectForKey:@"lng"], @"address": address, @"link": link};
                     NSString *beaconId = [NSString stringWithFormat:@"%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]];
                     [beacons setObject:dict forKey:beaconId];
                 
