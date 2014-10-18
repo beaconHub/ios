@@ -38,6 +38,8 @@
 //    2014-08-30 23:18:01.583 iBeacon-Hackathon[878:476584] ProximaNova-Light
     [Crashlytics startWithAPIKey:@"a73df0ceadf9f0995f97da85f3a3ca791c3e0de1"];
     Mixpanel *mixpanel = [Mixpanel sharedInstanceWithToken:@"356a46fa875147baf96e9d08324c16b4"];
+    [mixpanel identify:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+    
     [mixpanel track:@"Start"];
 
     UIApplication *app = [UIApplication sharedApplication];
@@ -86,6 +88,15 @@
         NSDictionary *beacons = [defs objectForKey:@"beacons"];
         NSDictionary *beaconObj = [beacons objectForKey:beaconId];
 
+        [[Mixpanel sharedInstance] track:@"enterBeaconService" properties:@{
+                                                                            @"beaconId": beaconId,
+                                                                            @"uuid": [beaconObj objectForKey:@"uuid"],
+                                                                            @"major": [beaconObj objectForKey:@"major"],
+                                                                            @"minor": [beaconObj objectForKey:@"minor"],
+                                                                            @"name": [beaconObj objectForKey:@"name"],
+                                                                            @"link": [beaconObj objectForKey:@"link"]
+                                                                            }];
+        
 
 
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

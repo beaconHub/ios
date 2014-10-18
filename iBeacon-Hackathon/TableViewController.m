@@ -18,6 +18,7 @@
 #import "UIColor+RandomColor.h"
 #import "BeaconDetailViewController.h"
 #import "CSParallaxHeaderViewController.h"
+#import <Mixpanel/Mixpanel.h>
 
 @interface TableViewController ()
 {
@@ -481,6 +482,12 @@
     
     NSString *alertBody = [NSString stringWithFormat:@"You just entered %@", serviceName];
     
+    [[Mixpanel sharedInstance] track:@"didEnterRegion" properties:@{
+                                    @"uuid": [beaconRegion.proximityUUID UUIDString],
+                                    @"major": beaconRegion.major,
+                                    @"minor": beaconRegion.minor
+                                    }];
+    
     UILocalNotification *aNotification = [[UILocalNotification alloc] init];
     
     aNotification.timeZone = [NSTimeZone defaultTimeZone];
@@ -523,6 +530,15 @@
         [afhttpManager GET:[NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%f/%f.json", location.coordinate.latitude, location.coordinate.longitude] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
             if (responseObject != nil) {
+                
+                [[Mixpanel sharedInstance].people set:@{
+                                               @"lat": [NSString stringWithFormat:@"%f", location.coordinate.latitude],
+                                               @"lng": [NSString stringWithFormat:@"%f", location.coordinate.longitude]
+                                               }];
+                [[Mixpanel sharedInstance] track:@"didUpdateLocations" properties:@{
+                                                @"lat": [NSString stringWithFormat:@"%f", location.coordinate.latitude],
+                                                @"lng": [NSString stringWithFormat:@"%f", location.coordinate.longitude]
+                                                }];
 
                 NSString *responseString = [operation responseString];
                 NSData *data1= [responseString dataUsingEncoding:NSUTF8StringEncoding];
