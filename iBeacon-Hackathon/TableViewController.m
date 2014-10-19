@@ -483,6 +483,7 @@
     NSString *alertBody = [NSString stringWithFormat:@"You just entered %@", serviceName];
     
     [[Mixpanel sharedInstance] track:@"didEnterRegion" properties:@{
+                                    @"name": serviceName,
                                     @"uuid": [beaconRegion.proximityUUID UUIDString],
                                     @"major": beaconRegion.major,
                                     @"minor": beaconRegion.minor
@@ -579,11 +580,12 @@
                     
                     NSDictionary *dict = @{@"name": [obj objectForKey:@"name"], @"description": @"", @"uuid": [obj objectForKey:@"uuid"], @"major": [obj objectForKey:@"major"], @"minor": [obj objectForKey:@"minor"], @"lat": [obj objectForKey:@"lat"], @"lng": [obj objectForKey:@"lng"], @"address": address, @"link": link};
                     NSString *beaconId = [NSString stringWithFormat:@"%@-%@-%@", [obj objectForKey:@"uuid"], [obj objectForKey:@"major"], [obj objectForKey:@"minor"]];
-                    [beacons setObject:dict forKey:beaconId];
+                    [beacons setObject:dict forKey:[beaconId uppercaseString]];
                 
                 }
                 
                 [[NSUserDefaults standardUserDefaults] setObject:beacons forKey:@"beacons"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 
                 [self.tableView reloadData];
             }
