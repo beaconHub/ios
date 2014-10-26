@@ -15,6 +15,9 @@
 
 
 @interface MainHostViewController : UIViewController<UINavigationControllerDelegate>
+{
+    UIButton* topLeftButton;
+}
 @property (nonatomic, assign) id<GestureRecognizerDelegate> gestureRecognizerDelegate;
 
 @property (strong, nonatomic) VBFPopFlatButton *flatRoundedButton;

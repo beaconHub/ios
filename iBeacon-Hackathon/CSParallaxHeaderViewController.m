@@ -12,6 +12,7 @@
 #import "MainHostViewController.h"
 #import "ChameleonFramework/Chameleon.h"
 #import <TOMSMorphingLabel/TOMSMorphingLabel.h>
+#import "WebViewController.h"
 
 @interface CSParallaxHeaderViewController ()
 
@@ -24,7 +25,9 @@
 {
     NSMutableArray *viewControllers;
     PageViewToCellAnimation *pageViewToCellAnimation;
+    NSString *serviceUrl;
 }
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -106,7 +109,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+//    [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
@@ -148,6 +152,8 @@
                       descriptionDict,
                       addressDict
                       ];
+    
+    serviceUrl = [self.beaconObj valueForKey:@"link"];
 
 
 //    NSLog(@"CSParallaxHeaderViewController obj >> %@", self.beaconObj);
@@ -209,6 +215,7 @@
 - (void) urlButtonPressed
 {
     NSLog(@"<CSParallaxHeaderViewController> urlButtonPressed");
+    NSLog(@"link -> %@", serviceUrl);
 }
 
 
@@ -250,16 +257,22 @@
 
         [mapView setDelegate:self];
 
-        NSLog(@"mapview obj lat  >> %@", [self.beaconObj valueForKey:@"lat"]);
-        NSLog(@"mapview obj lng  >> %@", [self.beaconObj valueForKey:@"lng"]);
+
 
 //        MKCoordinateRegionMake(<#CLLocationCoordinate2D centerCoordinate#>, <#MKCoordinateSpan span#>)
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake([[self.beaconObj valueForKey:@"lat"] doubleValue], [[self.beaconObj valueForKey:@"lng"] doubleValue]), 800, 800);
-       [mapView setRegion:[mapView regionThatFits:region] animated:YES];
 
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        [annotation setCoordinate:CLLocationCoordinate2DMake([[self.beaconObj valueForKey:@"lat"] doubleValue], [[self.beaconObj valueForKey:@"lng"] doubleValue])];
+
+
+
+
+       [mapView setRegion:[mapView regionThatFits:region] animated:YES];
+        [mapView addAnnotation:annotation];
         return cell;
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
-        NSLog(@"its footer");
+
 
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"footer"
@@ -267,10 +280,28 @@
         UIButton* btn = (UIButton*) [cell viewWithTag:1];
         [btn addTarget:self action:@selector(urlButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
+
+        if ([self.beaconObj valueForKey:@"link"]  == [NSNull null]) {
+            [btn setEnabled: FALSE];
+        }
         [cell setBackgroundColor:FlatRed];
         return cell;
     }
     return nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    WebViewController* nextView = (WebViewController*)segue.destinationViewController;
+
+    [nextView setUrlString:[self.beaconObj valueForKey:@"link"]];
+
+    if ([self.beaconObj valueForKey:@"name"] != [NSNull null])
+        [nextView setBeaconName:[self.beaconObj valueForKey:@"name"]];
+    else
+         [nextView setBeaconName:@"NULL"];
+
+//    NSLog(@"%@", self.beaconObj);
 }
 
 

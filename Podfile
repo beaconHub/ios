@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
 
 pod 'TMOTableView'
@@ -14,3 +15,4 @@ pod 'SwipeView'
 pod 'ChameleonFramework'
 pod 'TOMSMorphingLabel', '~> 0.2.2'
 pod 'OTMWebView'
+pod 'Mixpanel'

@@ -77,10 +77,83 @@
 		CE8E62A6199F476B00424866 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E62A5199F476B00424866 /* SystemConfiguration.framework */; };
 		CE8F185F199E167C00489139 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8F185E199E167C00489139 /* Image.xcassets */; };
 		CE9BC95C19A086D800629D8E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9BC95B19A086D800629D8E /* CoreBluetooth.framework */; };
+		D1B3E81219FCF11600D88B37 /* BeaconListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE895B32199F40A000937999 /* BeaconListViewController.m */; };
+		D1B3E81319FCF11600D88B37 /* BeaconDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE449318199F452A00296D6A /* BeaconDetailViewController.m */; };
+		D1B3E81419FCF11600D88B37 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F65619B1B63200B8628C /* TableViewController.m */; };
+		D1B3E81519FCF11600D88B37 /* CSParallaxHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F68119B2F6A700B8628C /* CSParallaxHeaderViewController.m */; };
+		D1B3E81619FCF11600D88B37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE321A3E199E123A00D7787E /* AppDelegate.m */; };
+		D1B3E81719FCF11600D88B37 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64A19B1B61800B8628C /* UIImage+Utils.m */; };
+		D1B3E81819FCF11600D88B37 /* CSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F66F19B2F66B00B8628C /* CSCell.m */; };
+		D1B3E81919FCF11600D88B37 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE321A64199E150300D7787E /* ChatViewController.m */; };
+		D1B3E81A19FCF11600D88B37 /* MHTsekotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE895B17199F3E8100937999 /* MHTsekotCell.m */; };
+		D1B3E81B19FCF11600D88B37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE321A3B199E123A00D7787E /* main.m */; };
+		D1B3E81C19FCF11600D88B37 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE321A66199E150300D7787E /* ProfileViewController.m */; };
+		D1B3E81D19FCF11600D88B37 /* MainHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64419B1105000B8628C /* MainHostViewController.m */; };
+		D1B3E81E19FCF11600D88B37 /* CellToPageViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64E19B1B61800B8628C /* CellToPageViewAnimation.m */; };
+		D1B3E81F19FCF11600D88B37 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F65819B1B63200B8628C /* PageViewController.m */; };
+		D1B3E82019FCF11600D88B37 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE321A6A199E151100D7787E /* ViewController.m */; };
+		D1B3E82119FCF11600D88B37 /* CSAlwaysOnTopHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F67119B2F66B00B8628C /* CSAlwaysOnTopHeader.m */; };
+		D1B3E82219FCF11600D88B37 /* JCRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F65E19B1F4F300B8628C /* JCRBlurView.m */; };
+		D1B3E82319FCF11600D88B37 /* BeaconTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64719B1AB0900B8628C /* BeaconTableViewController.m */; };
+		D1B3E82419FCF11600D88B37 /* MHYahooParallaxView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE895B19199F3E8100937999 /* MHYahooParallaxView.m */; };
+		D1B3E82519FCF11600D88B37 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F68419B40D0500B8628C /* WebViewController.m */; };
+		D1B3E82619FCF11600D88B37 /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F66119B1FC3400B8628C /* UIColor+RandomColor.m */; };
+		D1B3E82719FCF11600D88B37 /* MHYahooParallaxCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CE895B1A199F3E8100937999 /* MHYahooParallaxCollectionViewLayout.m */; };
+		D1B3E82819FCF11600D88B37 /* BaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F64C19B1B61800B8628C /* BaseAnimation.m */; };
+		D1B3E82919FCF11600D88B37 /* PageViewToCellAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20F65019B1B61800B8628C /* PageViewToCellAnimation.m */; };
+		D1B3E82B19FCF11600D88B37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE20F65B19B1B91B00B8628C /* CoreGraphics.framework */; };
+		D1B3E82C19FCF11600D88B37 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE526E6719AEED290065E511 /* MapKit.framework */; };
+		D1B3E82D19FCF11600D88B37 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9BC95B19A086D800629D8E /* CoreBluetooth.framework */; };
+		D1B3E82E19FCF11600D88B37 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E6293199F472900424866 /* CoreLocation.framework */; };
+		D1B3E82F19FCF11600D88B37 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E62A5199F476B00424866 /* SystemConfiguration.framework */; };
+		D1B3E83019FCF11600D88B37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E62A3199F476400424866 /* QuartzCore.framework */; };
+		D1B3E83119FCF11600D88B37 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E62A1199F475E00424866 /* OpenGLES.framework */; };
+		D1B3E83219FCF11600D88B37 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E629F199F475700424866 /* libz.dylib */; };
+		D1B3E83319FCF11600D88B37 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E629D199F475000424866 /* libicucore.dylib */; };
+		D1B3E83419FCF11600D88B37 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E629B199F474500424866 /* libc++.dylib */; };
+		D1B3E83519FCF11600D88B37 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F1AD3B19CA7AF400E1011E /* Crashlytics.framework */; };
+		D1B3E83619FCF11600D88B37 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E6299199F473B00424866 /* ImageIO.framework */; };
+		D1B3E83719FCF11600D88B37 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E6297199F473500424866 /* GLKit.framework */; };
+		D1B3E83819FCF11600D88B37 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E6295199F472F00424866 /* CoreText.framework */; };
+		D1B3E83919FCF11600D88B37 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E6291199F472000424866 /* CoreData.framework */; };
+		D1B3E83A19FCF11600D88B37 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E628F199F471900424866 /* AVFoundation.framework */; };
+		D1B3E83B19FCF11600D88B37 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8E628B199F469B00424866 /* GoogleMaps.framework */; };
+		D1B3E83C19FCF11600D88B37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE559F8E7EA1490191CEE423 /* libPods.a */; };
+		D1B3E83E19FCF11600D88B37 /* CSSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67219B2F66B00B8628C /* CSSectionHeader.xib */; };
+		D1B3E83F19FCF11600D88B37 /* CSParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67419B2F66B00B8628C /* CSParallaxHeader.xib */; };
+		D1B3E84019FCF11600D88B37 /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE321A5E199E14BE00D7787E /* MuseoSans-300.otf */; };
+		D1B3E84119FCF11600D88B37 /* content-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE895B20199F3ECB00937999 /* content-1@2x.png */; };
+		D1B3E84219FCF11600D88B37 /* content-2.png in Resources */ = {isa = PBXBuildFile; fileRef = CE895B21199F3ECB00937999 /* content-2.png */; };
+		D1B3E84319FCF11600D88B37 /* CSAlwaysOnTopHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67719B2F66B00B8628C /* CSAlwaysOnTopHeader.xib */; };
+		D1B3E84419FCF11600D88B37 /* content-3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE895B23199F3ECB00937999 /* content-3.png */; };
+		D1B3E84519FCF11600D88B37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE10A9FB199E16FF009D100B /* Main.storyboard */; };
+		D1B3E84619FCF11600D88B37 /* beaconHub_largelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE115DAD199FB97000682D97 /* beaconHub_largelogo.png */; };
+		D1B3E84719FCF11600D88B37 /* beaconHub_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE115DAE199FB97000682D97 /* beaconHub_logo.png */; };
+		D1B3E84819FCF11600D88B37 /* ProximaNova-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66319B2211800B8628C /* ProximaNova-Bold.ttf */; };
+		D1B3E84919FCF11600D88B37 /* CSSearchBarHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67519B2F66B00B8628C /* CSSearchBarHeader.xib */; };
+		D1B3E84A19FCF11600D88B37 /* CSGrowHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67619B2F66B00B8628C /* CSGrowHeader.xib */; };
+		D1B3E84B19FCF11600D88B37 /* harryng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE115DAB199FB7E600682D97 /* harryng.jpg */; };
+		D1B3E84C19FCF11600D88B37 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8F185E199E167C00489139 /* Image.xcassets */; };
+		D1B3E84D19FCF11600D88B37 /* ProximaNova-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66419B2211800B8628C /* ProximaNova-Light.ttf */; };
+		D1B3E84E19FCF11600D88B37 /* content-1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE895B1F199F3ECB00937999 /* content-1.png */; };
+		D1B3E84F19FCF11600D88B37 /* ProximaNova-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66719B2211800B8628C /* ProximaNova-Thin.ttf */; };
+		D1B3E85019FCF11600D88B37 /* CSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20F67319B2F66B00B8628C /* CSCell.xib */; };
+		D1B3E85119FCF11600D88B37 /* panghoming.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE115DA9199FA2A000682D97 /* panghoming.jpg */; };
+		D1B3E85219FCF11600D88B37 /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE321A5F199E14BE00D7787E /* MuseoSans-500.otf */; };
+		D1B3E85319FCF11600D88B37 /* MuseoSans-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE321A5D199E14BE00D7787E /* MuseoSans-100.otf */; };
+		D1B3E85419FCF11600D88B37 /* header_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE895B26199F3ECB00937999 /* header_bg@2x.png */; };
+		D1B3E85519FCF11600D88B37 /* ProximaNova-Sbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66619B2211800B8628C /* ProximaNova-Sbold.ttf */; };
+		D1B3E85619FCF11600D88B37 /* header_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CE895B25199F3ECB00937999 /* header_bg.png */; };
+		D1B3E85719FCF11600D88B37 /* content-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE895B24199F3ECB00937999 /* content-3@2x.png */; };
+		D1B3E85819FCF11600D88B37 /* content-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE895B22199F3ECB00937999 /* content-2@2x.png */; };
+		D1B3E85919FCF11600D88B37 /* ProximaNova-Reg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE20F66519B2211800B8628C /* ProximaNova-Reg.ttf */; };
+		D1B3E85A19FCF11600D88B37 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE8E628D199F46CF00424866 /* GoogleMaps.bundle */; };
+		D1F1AD3C19CA7AF400E1011E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F1AD3B19CA7AF400E1011E /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3412C2D01B1B4FA2B7D833C4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2839EF33784C55FCA861CB70 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CCCD5B58E1E4B98775C247D3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CE10A9FB199E16FF009D100B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CE115DA9199FA2A000682D97 /* panghoming.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = panghoming.jpg; sourceTree = "<group>"; };
 		CE115DAB199FB7E600682D97 /* harryng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = harryng.jpg; sourceTree = "<group>"; };
@@ -126,7 +199,7 @@
 		CE20F68119B2F6A700B8628C /* CSParallaxHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSParallaxHeaderViewController.m; sourceTree = "<group>"; };
 		CE20F68319B40D0500B8628C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CE20F68419B40D0500B8628C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		CE321A36199E123A00D7787E /* iBeacon-Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iBeacon-Hackathon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE321A36199E123A00D7787E /* beaconHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beaconHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE321A3A199E123A00D7787E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE321A3B199E123A00D7787E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE321A3D199E123A00D7787E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -177,6 +250,9 @@
 		CE8E62A5199F476B00424866 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE8F185E199E167C00489139 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		CE9BC95B19A086D800629D8E /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		D1B3E86019FCF11600D88B37 /* beaconHub-appstore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "beaconHub-appstore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1B3E86119FCF11600D88B37 /* beaconHub-appstore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "beaconHub-appstore-Info.plist"; path = "/Users/harryng/Documents/workspace/ios/beaconHub/beaconHub-appstore-Info.plist"; sourceTree = "<absolute>"; };
+		D1F1AD3B19CA7AF400E1011E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FE559F8E7EA1490191CEE423 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -195,6 +271,7 @@
 				CE8E62A0199F475700424866 /* libz.dylib in Frameworks */,
 				CE8E629E199F475000424866 /* libicucore.dylib in Frameworks */,
 				CE8E629C199F474500424866 /* libc++.dylib in Frameworks */,
+				D1F1AD3C19CA7AF400E1011E /* Crashlytics.framework in Frameworks */,
 				CE8E629A199F473B00424866 /* ImageIO.framework in Frameworks */,
 				CE8E6298199F473500424866 /* GLKit.framework in Frameworks */,
 				CE8E6296199F472F00424866 /* CoreText.framework in Frameworks */,
@@ -205,9 +282,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1B3E82A19FCF11600D88B37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B3E82B19FCF11600D88B37 /* CoreGraphics.framework in Frameworks */,
+				D1B3E82C19FCF11600D88B37 /* MapKit.framework in Frameworks */,
+				D1B3E82D19FCF11600D88B37 /* CoreBluetooth.framework in Frameworks */,
+				D1B3E82E19FCF11600D88B37 /* CoreLocation.framework in Frameworks */,
+				D1B3E82F19FCF11600D88B37 /* SystemConfiguration.framework in Frameworks */,
+				D1B3E83019FCF11600D88B37 /* QuartzCore.framework in Frameworks */,
+				D1B3E83119FCF11600D88B37 /* OpenGLES.framework in Frameworks */,
+				D1B3E83219FCF11600D88B37 /* libz.dylib in Frameworks */,
+				D1B3E83319FCF11600D88B37 /* libicucore.dylib in Frameworks */,
+				D1B3E83419FCF11600D88B37 /* libc++.dylib in Frameworks */,
+				D1B3E83519FCF11600D88B37 /* Crashlytics.framework in Frameworks */,
+				D1B3E83619FCF11600D88B37 /* ImageIO.framework in Frameworks */,
+				D1B3E83719FCF11600D88B37 /* GLKit.framework in Frameworks */,
+				D1B3E83819FCF11600D88B37 /* CoreText.framework in Frameworks */,
+				D1B3E83919FCF11600D88B37 /* CoreData.framework in Frameworks */,
+				D1B3E83A19FCF11600D88B37 /* AVFoundation.framework in Frameworks */,
+				D1B3E83B19FCF11600D88B37 /* GoogleMaps.framework in Frameworks */,
+				D1B3E83C19FCF11600D88B37 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E14AAC124A6AF0CDBCB615C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCCD5B58E1E4B98775C247D3 /* Pods.debug.xcconfig */,
+				2839EF33784C55FCA861CB70 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CE20F66D19B2F65900B8628C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,15 +342,17 @@
 				CE321A38199E123A00D7787E /* iBeacon-Hackathon */,
 				CE321A4F199E123B00D7787E /* iBeacon-HackathonTests */,
 				CE321A37199E123A00D7787E /* Products */,
-				3412C2D01B1B4FA2B7D833C4 /* Pods.xcconfig */,
 				DB65E01BBB784BCBAC3ABBA8 /* Frameworks */,
+				5E14AAC124A6AF0CDBCB615C /* Pods */,
+				D1B3E86119FCF11600D88B37 /* beaconHub-appstore-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		CE321A37199E123A00D7787E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE321A36199E123A00D7787E /* iBeacon-Hackathon.app */,
+				CE321A36199E123A00D7787E /* beaconHub.app */,
+				D1B3E86019FCF11600D88B37 /* beaconHub-appstore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,6 +467,7 @@
 		DB65E01BBB784BCBAC3ABBA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1F1AD3B19CA7AF400E1011E /* Crashlytics.framework */,
 				CE20F65B19B1B91B00B8628C /* CoreGraphics.framework */,
 				CE526E6719AEED290065E511 /* MapKit.framework */,
 				CE9BC95B19A086D800629D8E /* CoreBluetooth.framework */,
@@ -379,23 +493,44 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE321A35199E123A00D7787E /* iBeacon-Hackathon */ = {
+		CE321A35199E123A00D7787E /* beaconHub */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE321A56199E123B00D7787E /* Build configuration list for PBXNativeTarget "iBeacon-Hackathon" */;
+			buildConfigurationList = CE321A56199E123B00D7787E /* Build configuration list for PBXNativeTarget "beaconHub" */;
 			buildPhases = (
 				65B30861AFFC4011AF7F5561 /* Check Pods Manifest.lock */,
 				CE321A32199E123A00D7787E /* Sources */,
 				CE321A33199E123A00D7787E /* Frameworks */,
 				CE321A34199E123A00D7787E /* Resources */,
 				68E5C6D7E4054C0DB33A5389 /* Copy Pods Resources */,
+				D1F1AD3A19CA7A4900E1011E /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "iBeacon-Hackathon";
+			name = beaconHub;
 			productName = "iBeacon-Hackathon";
-			productReference = CE321A36199E123A00D7787E /* iBeacon-Hackathon.app */;
+			productReference = CE321A36199E123A00D7787E /* beaconHub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D1B3E80F19FCF11600D88B37 /* beaconHub-appstore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1B3E85D19FCF11600D88B37 /* Build configuration list for PBXNativeTarget "beaconHub-appstore" */;
+			buildPhases = (
+				D1B3E81019FCF11600D88B37 /* Check Pods Manifest.lock */,
+				D1B3E81119FCF11600D88B37 /* Sources */,
+				D1B3E82A19FCF11600D88B37 /* Frameworks */,
+				D1B3E83D19FCF11600D88B37 /* Resources */,
+				D1B3E85B19FCF11600D88B37 /* Copy Pods Resources */,
+				D1B3E85C19FCF11600D88B37 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "beaconHub-appstore";
+			productName = "iBeacon-Hackathon";
+			productReference = D1B3E86019FCF11600D88B37 /* beaconHub-appstore.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -409,6 +544,15 @@
 				TargetAttributes = {
 					CE321A35199E123A00D7787E = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 49V87TT95M;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					D1B3E80F19FCF11600D88B37 = {
+						DevelopmentTeam = 26P59ZGBPB;
 					};
 				};
 			};
@@ -425,7 +569,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE321A35199E123A00D7787E /* iBeacon-Hackathon */,
+				CE321A35199E123A00D7787E /* beaconHub */,
+				D1B3E80F19FCF11600D88B37 /* beaconHub-appstore */,
 			);
 		};
 /* End PBXProject section */
@@ -467,6 +612,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1B3E83D19FCF11600D88B37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B3E83E19FCF11600D88B37 /* CSSectionHeader.xib in Resources */,
+				D1B3E83F19FCF11600D88B37 /* CSParallaxHeader.xib in Resources */,
+				D1B3E84019FCF11600D88B37 /* MuseoSans-300.otf in Resources */,
+				D1B3E84119FCF11600D88B37 /* content-1@2x.png in Resources */,
+				D1B3E84219FCF11600D88B37 /* content-2.png in Resources */,
+				D1B3E84319FCF11600D88B37 /* CSAlwaysOnTopHeader.xib in Resources */,
+				D1B3E84419FCF11600D88B37 /* content-3.png in Resources */,
+				D1B3E84519FCF11600D88B37 /* Main.storyboard in Resources */,
+				D1B3E84619FCF11600D88B37 /* beaconHub_largelogo.png in Resources */,
+				D1B3E84719FCF11600D88B37 /* beaconHub_logo.png in Resources */,
+				D1B3E84819FCF11600D88B37 /* ProximaNova-Bold.ttf in Resources */,
+				D1B3E84919FCF11600D88B37 /* CSSearchBarHeader.xib in Resources */,
+				D1B3E84A19FCF11600D88B37 /* CSGrowHeader.xib in Resources */,
+				D1B3E84B19FCF11600D88B37 /* harryng.jpg in Resources */,
+				D1B3E84C19FCF11600D88B37 /* Image.xcassets in Resources */,
+				D1B3E84D19FCF11600D88B37 /* ProximaNova-Light.ttf in Resources */,
+				D1B3E84E19FCF11600D88B37 /* content-1.png in Resources */,
+				D1B3E84F19FCF11600D88B37 /* ProximaNova-Thin.ttf in Resources */,
+				D1B3E85019FCF11600D88B37 /* CSCell.xib in Resources */,
+				D1B3E85119FCF11600D88B37 /* panghoming.jpg in Resources */,
+				D1B3E85219FCF11600D88B37 /* MuseoSans-500.otf in Resources */,
+				D1B3E85319FCF11600D88B37 /* MuseoSans-100.otf in Resources */,
+				D1B3E85419FCF11600D88B37 /* header_bg@2x.png in Resources */,
+				D1B3E85519FCF11600D88B37 /* ProximaNova-Sbold.ttf in Resources */,
+				D1B3E85619FCF11600D88B37 /* header_bg.png in Resources */,
+				D1B3E85719FCF11600D88B37 /* content-3@2x.png in Resources */,
+				D1B3E85819FCF11600D88B37 /* content-2@2x.png in Resources */,
+				D1B3E85919FCF11600D88B37 /* ProximaNova-Reg.ttf in Resources */,
+				D1B3E85A19FCF11600D88B37 /* GoogleMaps.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -497,8 +678,64 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D1B3E81019FCF11600D88B37 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D1B3E85B19FCF11600D88B37 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1B3E85C19FCF11600D88B37 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run a73df0ceadf9f0995f97da85f3a3ca791c3e0de1 bf3ab1034c5cd75609e3800f03579bcde8e8b5508ad8217db336d49533c768c0";
+		};
+		D1F1AD3A19CA7A4900E1011E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run a73df0ceadf9f0995f97da85f3a3ca791c3e0de1 bf3ab1034c5cd75609e3800f03579bcde8e8b5508ad8217db336d49533c768c0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -531,6 +768,37 @@
 				CE895B1E199F3E8100937999 /* MHYahooParallaxCollectionViewLayout.m in Sources */,
 				CE20F65219B1B61800B8628C /* BaseAnimation.m in Sources */,
 				CE20F65419B1B61800B8628C /* PageViewToCellAnimation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B3E81119FCF11600D88B37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B3E81219FCF11600D88B37 /* BeaconListViewController.m in Sources */,
+				D1B3E81319FCF11600D88B37 /* BeaconDetailViewController.m in Sources */,
+				D1B3E81419FCF11600D88B37 /* TableViewController.m in Sources */,
+				D1B3E81519FCF11600D88B37 /* CSParallaxHeaderViewController.m in Sources */,
+				D1B3E81619FCF11600D88B37 /* AppDelegate.m in Sources */,
+				D1B3E81719FCF11600D88B37 /* UIImage+Utils.m in Sources */,
+				D1B3E81819FCF11600D88B37 /* CSCell.m in Sources */,
+				D1B3E81919FCF11600D88B37 /* ChatViewController.m in Sources */,
+				D1B3E81A19FCF11600D88B37 /* MHTsekotCell.m in Sources */,
+				D1B3E81B19FCF11600D88B37 /* main.m in Sources */,
+				D1B3E81C19FCF11600D88B37 /* ProfileViewController.m in Sources */,
+				D1B3E81D19FCF11600D88B37 /* MainHostViewController.m in Sources */,
+				D1B3E81E19FCF11600D88B37 /* CellToPageViewAnimation.m in Sources */,
+				D1B3E81F19FCF11600D88B37 /* PageViewController.m in Sources */,
+				D1B3E82019FCF11600D88B37 /* ViewController.m in Sources */,
+				D1B3E82119FCF11600D88B37 /* CSAlwaysOnTopHeader.m in Sources */,
+				D1B3E82219FCF11600D88B37 /* JCRBlurView.m in Sources */,
+				D1B3E82319FCF11600D88B37 /* BeaconTableViewController.m in Sources */,
+				D1B3E82419FCF11600D88B37 /* MHYahooParallaxView.m in Sources */,
+				D1B3E82519FCF11600D88B37 /* WebViewController.m in Sources */,
+				D1B3E82619FCF11600D88B37 /* UIColor+RandomColor.m in Sources */,
+				D1B3E82719FCF11600D88B37 /* MHYahooParallaxCollectionViewLayout.m in Sources */,
+				D1B3E82819FCF11600D88B37 /* BaseAnimation.m in Sources */,
+				D1B3E82919FCF11600D88B37 /* PageViewToCellAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,37 +883,81 @@
 		};
 		CE321A57199E123B00D7787E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3412C2D01B1B4FA2B7D833C4 /* Pods.xcconfig */;
+			baseConfigurationReference = CCCD5B58E1E4B98775C247D3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "iBeacon-Hackathon/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		CE321A58199E123B00D7787E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3412C2D01B1B4FA2B7D833C4 /* Pods.xcconfig */;
+			baseConfigurationReference = 2839EF33784C55FCA861CB70 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: STAY REAL LIMITED";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: STAY REAL LIMITED";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "iBeacon-Hackathon/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		D1B3E85E19FCF11600D88B37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCCD5B58E1E4B98775C247D3 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/beaconHub-appstore-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "beaconHub-appstore";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		D1B3E85F19FCF11600D88B37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2839EF33784C55FCA861CB70 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: STAY REAL LIMITED (26P59ZGBPB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: STAY REAL LIMITED (26P59ZGBPB)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/beaconHub-appstore-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "beaconHub-appstore";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -661,11 +973,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE321A56199E123B00D7787E /* Build configuration list for PBXNativeTarget "iBeacon-Hackathon" */ = {
+		CE321A56199E123B00D7787E /* Build configuration list for PBXNativeTarget "beaconHub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE321A57199E123B00D7787E /* Debug */,
 				CE321A58199E123B00D7787E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1B3E85D19FCF11600D88B37 /* Build configuration list for PBXNativeTarget "beaconHub-appstore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B3E85E19FCF11600D88B37 /* Debug */,
+				D1B3E85F19FCF11600D88B37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

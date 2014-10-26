@@ -70,9 +70,12 @@
     }
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-    
+
+
+//    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler];
+//    [[UIApplication sharedApplication] endBackgroundTask:];
     // Set a movement threshold for new events.
-    locationManager.distanceFilter = 500; // meters
+//    locationManager.distanceFilter = 500; // meters
 
     [self.tableView setHidden:NO];
     [self.mapView setHidden:YES];
@@ -83,17 +86,17 @@
 //        NSLog(@"yes");
 //        [locationManager startUpdatingLocation];
 //    }
-//
-//
-//
-////    CLBeaconRegion* hackathonRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"] major:100 minor:100 identifier:@"sdf"];
-////
-////    [hackathonRegion setNotifyOnEntry:YES];
-////    [hackathonRegion setNotifyOnExit:YES];
-////    [hackathonRegion setNotifyEntryStateOnDisplay:YES];
-////
-////    [locationManager startMonitoringForRegion:hackathonRegion];
-////    [locationManager startRangingBeaconsInRegion:hackathonRegion];
+
+
+
+    CLBeaconRegion* hackathonRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"] major:100 minor:100 identifier:@"sdf"];
+
+    [hackathonRegion setNotifyOnEntry:YES];
+    [hackathonRegion setNotifyOnExit:YES];
+    [hackathonRegion setNotifyEntryStateOnDisplay:YES];
+
+    [locationManager startMonitoringForRegion:hackathonRegion];
+    [locationManager startRangingBeaconsInRegion:hackathonRegion];
 
 
 
@@ -122,34 +125,6 @@
 
 
 
-    AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
-    [afhttpManager GET:@"http://beaconhub.herokuapp.com/search/near/22.3657233/114.0464272/15.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-
-        if (responseObject != nil) {
-
-            NSString *responseString = [operation responseString];
-            NSData *data= [responseString dataUsingEncoding:NSUTF8StringEncoding];
-            NSError *error;
-            NSArray* results = [NSJSONSerialization JSONObjectWithData:data
-                                                               options:0
-                                                                 error:&error];
-            for (id obj in results)
-                {
-
-                [datasourceArray addObject: obj];
-                    //                NSDictionary *res=[results objectAtIndex:i];
-                    //                NSDictionary *res2=[res objectForKey:@"post"];
-                    //                [self.storesArray addObject:res2];
-
-                }
-
-                  NSLog(@"result.count >> %d", results.count);
-//                锸锸锸锸锸锸锸锸金 [self.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
 
 
     self.tableView.emptyDataSetSource = self;
@@ -168,7 +143,7 @@
 
     if ([CLLocationManager locationServicesEnabled]) {
         switch ([CLLocationManager authorizationStatus]) {
-            case kCLAuthorizationStatusAuthorizedAlways:
+            case kCLAuthorizationStatusAuthorized:
                 shouldFetchLocation= YES;
                 break;
             case kCLAuthorizationStatusDenied:
@@ -206,15 +181,18 @@
     return shouldFetchLocation;
 }
 
+#pragma mark - locationManager delegate methods
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 
 
-    if (status == kCLAuthorizationStatusAuthorizedAlways) {
+    if (status == kCLAuthorizationStatusAuthorized) {
         NSLog(@"kCLAuthorizationStatusAuthorizedAlways");
     }else if(status == kCLAuthorizationStatusNotDetermined){
         NSLog(@"kCLAuthorizationStatusNotDetermined");
-        [locationManager startUpdatingLocation];
+//        [locationManager startUpdatingLocation];
+
+        [locationManager startMonitoringSignificantLocationChanges];
     }
         // NSLog(@"authorizationstatus >> %@", status);
 
@@ -275,9 +253,42 @@
               location.coordinate.latitude,
               location.coordinate.longitude);
     }
-    
+
+    datasourceArray = [NSMutableArray new];
     
     NSString* requestString = [NSString stringWithFormat:@"http://beaconhub.herokuapp.com/search/near/%.6f/%.6f/14.json", location.coordinate.latitude, location.coordinate.longitude];
+
+    AFHTTPRequestOperationManager *afhttpManager = [AFHTTPRequestOperationManager manager];
+    [afhttpManager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+
+        if (responseObject != nil) {
+
+            NSString *responseString = [operation responseString];
+            NSData *data= [responseString dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error;
+            NSArray* results = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:&error];
+            for (id obj in results)
+                {
+
+                [datasourceArray addObject: obj];
+                    //                NSDictionary *res=[results objectAtIndex:i];
+                    //                NSDictionary *res2=[res objectForKey:@"post"];
+                    //                [self.storesArray addObject:res2];
+
+                }
+
+//            NSLog(@"result.count >> %d", results.count);
+                //                锸锸锸锸锸锸锸锸金 [self.tableView reloadData];
+
+            [self.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
    }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -294,6 +305,8 @@
 
 
     ////
+
+#pragma mark - UITableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -383,6 +396,8 @@
 
 }
 
+#pragma mark - DZNEmptyDataSetDelegate methods
+
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
 
     NSString *text = @"No Beacon Services Found";
@@ -425,7 +440,6 @@
      UIImage *icon = [IonIcons imageWithIcon:icon_bluetooth iconColor:[UIColor darkGrayColor] iconSize:44.0f imageSize:CGSizeMake(60.0f, 60.0f)];
     return icon;
 }
-
 
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView {
 
